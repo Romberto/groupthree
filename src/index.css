@@ -1,21 +1,28 @@
+:root {
+  --lilac: #6a5acd;
+  --black: #171a1f;
+  --black-ligth: #323842;
+  --gray: #bcc1ca;
+}
 
-body{
+body {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
-.container{
+.container {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 5px;
