@@ -1,5 +1,3 @@
-@import url(../../../index.css);
-
 .btn_violet,
 .btn_white,
 .btn_round_right {
@@ -21,19 +19,18 @@
   color: var(--white);
 }
 .btn_white {
-    background-color: var(--white);
-    color: var(--lilac);
-
+  background-color: var(--white);
+  color: var(--lilac);
 }
 .btn_violet:active,
-.btn_round_right:active{
-    background-color: var(--white);
-    color:var(--lilac);
+.btn_round_right:active {
+  background-color: var(--white);
+  color: var(--lilac);
 }
 
-.btn_white:active{
-    background-color: var(--lilac);
-    color:var(--white);
+.btn_white:active {
+  background-color: var(--lilac);
+  color: var(--white);
 }
 
 .btn_round_right {

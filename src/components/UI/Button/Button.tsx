@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
-import styles from "../Button/Button.module.css";
+import styles from "./Button.module.css";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -12,10 +12,10 @@ const Button = (props: ButtonProps, { ...rest }) => {
       {...rest}
       className={`${
         props.mode === "btn-violet"
-         ? styles.btn_violet
-         : props.mode === "btn-white"
-         ? styles.btn_white
-         : styles.btn_round_right
+          ? styles.btn_violet
+          : props.mode === "btn-white"
+          ? styles.btn_white
+          : styles.btn_round_right
       }`}
     >
       {props.text}

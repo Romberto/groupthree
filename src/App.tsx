@@ -1,4 +1,5 @@
 import Button from "./components/UI/Button/Button";
+import Input from "./components/UI/Input/Input";
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       <Button text="Join us now" mode="btn-white"/>
       <Button text="Request demo" mode="btn-violet"/>
       <Button text="Join us now" mode="btn-round-rigth"/>
+      <br/>
+      <Input/>
     </div>
   );
 }
