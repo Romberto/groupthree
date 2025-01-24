@@ -1,0 +1,43 @@
+@import url(../../../index.css);
+
+.btn_violet,
+.btn_white,
+.btn_round_right {
+  padding: 6px 22px;
+  border-radius: 6px;
+  border: 1px solid var(--lilac);
+  box-shadow: var(--lilac) 1px 1px 5px 0px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.btn_violet {
+  background-color: var(--lilac);
+  color: var(--white);
+}
+.btn_white {
+    background-color: var(--white);
+    color: var(--lilac);
+
+}
+.btn_violet:active,
+.btn_round_right:active{
+    background-color: var(--white);
+    color:var(--lilac);
+}
+
+.btn_white:active{
+    background-color: var(--lilac);
+    color:var(--white);
+}
+
+.btn_round_right {
+  border-radius: 0 6px 6px 0;
+  background-color: var(--lilac);
+  color: var(--white);
+}
