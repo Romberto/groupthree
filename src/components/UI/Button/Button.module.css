@@ -12,6 +12,7 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  transition: background-color 0.1s ease;
 }
 
 .btn_violet {

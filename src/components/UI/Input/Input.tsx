@@ -1,11 +1,16 @@
 
+import { InputHTMLAttributes } from 'react';
 import styled from './Input.module.css'
 
-const Input = ({...rest}) => {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
+  className?:string
+}
+
+const Input: React.FC<InputProps> = ({className="", ...rest}) => {
   return (
-    <div>
-      <input {...rest} className={styled.input}></input>
-    </div>
+    <>
+      <input {...rest} className={`${styled.input} ${className}`}></input>
+    </>
   )
 };
 
