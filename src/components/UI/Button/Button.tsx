@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   mode: "btn-violet" | "btn-white" | "btn-round-rigth";
-  className?: string | null;
+  className?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
       : styles.btn_round_right
   } ${className}`;
   return (
-    <button {...rest} className={`${className} ${btnClass}`}>
+    <button {...rest} className={`${btnClass} ${className ? className : ''}`}>
       {children}
     </button>
   );

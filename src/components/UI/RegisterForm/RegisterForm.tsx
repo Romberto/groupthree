@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, HTMLAttributes } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import styled from "./RegisterForm.module.css";
@@ -9,13 +9,13 @@ import {
   LogIn,
 } from "../../../utils/utils";
 
-type RegisterFormProps = {
+type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
   className?: string;
   mode: "singIn" | "singUp";
 };
 
 const RegisterForm: React.FC<RegisterFormProps> = ({
-  className = "",
+  className,
   mode,
   ...rest
 }) => {
@@ -98,7 +98,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 
   return (
     <form
-      className={`${styled.form} ${className}`}
+      className={`${styled.form} ${className ? className : ''}`}
       onSubmit={onSubmit}
       {...rest}
     >

@@ -6,7 +6,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input: React.FC<InputProps> = ({ className = "", ...rest }) => {
-  return <input {...rest} className={`${styled.input} ${className}`}></input>;
+  return <input {...rest} className={`${styled.input} ${className ? className : ''}`}></input>;
 };
 
 export default Input;

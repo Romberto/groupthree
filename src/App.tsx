@@ -10,7 +10,7 @@ function App() {
       <Button  mode="btn-violet" >Request demo</Button>
       <Button  mode="btn-round-rigth" >Join us now</Button>
       <Input />
-      <RegisterForm mode="singIn"/>
+      <RegisterForm  mode="singIn"/>
       <RegisterForm mode="singUp"/>
     </div>
   );
