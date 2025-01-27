@@ -18,9 +18,9 @@ const Button: React.FC<ButtonProps> = ({
       : mode === "btn-white"
       ? styles.btn_white
       : styles.btn_round_right
-  } ${className}`;
+  } ${className ? className : ""}`;
   return (
-    <button {...rest} className={`${btnClass} ${className ? className : ''}`}>
+    <button {...rest} className={btnClass}>
       {children}
     </button>
   );

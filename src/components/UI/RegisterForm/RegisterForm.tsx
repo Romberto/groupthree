@@ -38,10 +38,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
       const [email, password] = Object.values(formData);
       if (mode === "singIn") {
         const isAuth = LogIn(email, password);
-        if(!isAuth){
+        if (!isAuth) {
           setFormErrors((prevState) => ({
             ...prevState,
-            "form" : "Invalid email or password",
+            form: "Invalid email or password",
           }));
         }
       } else {
@@ -51,7 +51,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             ? addUser(email, password)
             : setFormErrors((prevState) => ({
                 ...prevState,
-                "form" : "Email already registered",
+                form: "Email already registered",
               }));
         }
       }
@@ -66,12 +66,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
       ...prevState,
       [name]: value,
     }));
-    setFormErrors((prevState)=>({
-      ...prevState, 
-        email: "",
-        password: "",
-        form: "",    
-    }))
+    setFormErrors((prevState) => ({
+      ...prevState,
+      email: "",
+      password: "",
+      form: "",
+    }));
 
     if (!value) {
       setFormErrors((prevState) => ({
@@ -95,13 +95,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
       }));
     }
   };
-
+  const formClass = `${styled.form} ${className ? className : ""}`;
   return (
-    <form
-      className={`${styled.form} ${className ? className : ''}`}
-      onSubmit={onSubmit}
-      {...rest}
-    >
+    <form className={formClass} onSubmit={onSubmit} {...rest}>
       <h3>{mode === "singIn" ? "Sing In" : "Sing Up"}</h3>
       <label className={styled.label}>
         <Input
@@ -135,8 +131,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         Sign {`${mode === "singIn" ? "In" : "Up"}`} to Galary
       </Button>
       {formErrors.form && (
-          <span className={styled.form_error}>{formErrors.form}</span>
-        )}
+        <span className={styled.form_error}>{formErrors.form}</span>
+      )}
     </form>
   );
 };
