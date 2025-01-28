@@ -51,7 +51,21 @@
 }
 
 .header_buttons {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
 }
-    
+
+.header_button {
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.button_text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
