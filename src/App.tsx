@@ -1,6 +1,7 @@
 import Button from "./components/UI/Button/Button";
 import Input from "./components/UI/Input/Input";
 import RegisterForm from "./components/UI/RegisterForm/RegisterForm";
+import SearchFilterForm from "./components/UI/SearchFilterForm/SearchFilterForm";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Input />
       <RegisterForm  mode="singIn"/>
       <RegisterForm mode="singUp"/>
+      <SearchFilterForm />
     </div>
   );
 }
