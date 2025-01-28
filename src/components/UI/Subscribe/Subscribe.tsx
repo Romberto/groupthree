@@ -4,7 +4,11 @@ import Input from "../Input/Input";
 import styled from "./Subscribe.module.css";
 import React, { ChangeEvent, useState } from "react";
 
-const Subscribe = () => {
+type SubscriblePropsType = {
+    className?:string,
+}
+
+const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
   const [value, setValue] = useState({
     email: "",
   });
@@ -37,8 +41,9 @@ const Subscribe = () => {
     e.preventDefault();
     console.log(e.target);
   };
+  const classSub = `${styled.subscribe} ${className ? className : ""}`;
   return (
-    <div className={styled.subscribe}>
+    <div className={classSub}>
       <h3>Subscribe to our newsletter</h3>
       <form onSubmit={onSubmitHandler}>
         <label>

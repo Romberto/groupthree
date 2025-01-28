@@ -39,6 +39,8 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
+    background-color: var(--dark-gray);
+    ;
 }
 
 
