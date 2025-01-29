@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import styles from './Header.module.css'
 import Button from "../Button/Button"
 import logo from '../../../assets/logo.svg'
@@ -7,7 +7,11 @@ import help from '../../../assets/help.svg'
 
 const headerNavList: string[] = ['home', 'search', 'favorites']
 
-export const Header: React.FC = () => {
+type HeaderProps = HTMLAttributes<HTMLHeadElement> & {
+  isAuth: boolean;
+};
+
+export const Header: React.FC<HeaderProps> = ({ isAuth }) => {
   return (
     <header className={styles.header}>
       <nav className={styles.header_nav}>
@@ -28,7 +32,7 @@ export const Header: React.FC = () => {
         <Button className={styles.header_button} mode='btn-white'>
           <p className={styles.button_text}>
             <img src={arrow} alt='arrow'/>
-            Sign Up
+            {isAuth ? 'Sign out' : 'Sign up'}
           </p>
         </Button>
         <Button className={styles.header_button} mode='btn-violet'>
