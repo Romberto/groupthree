@@ -3,7 +3,7 @@
     gap: 10px;
     margin-bottom: 20px;
   }
-  
+
   .searchInput {
     flex: 1;
     padding: 10px;
@@ -29,5 +29,5 @@
   
   .searchButton:hover {
     background-color: white;
-    color:#6A5ACD;
+    color: #6A5ACD;
   }

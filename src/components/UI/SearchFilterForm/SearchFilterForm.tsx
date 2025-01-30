@@ -1,4 +1,5 @@
 import { FilterButton } from "./FilterButton";
+import { FILTER_TYPES } from "./filterTypes";
 import { SearchBar } from "./SearchBar";
 import styles from "./SearchFilterForm.module.css";
 import React, { useState } from "react";
@@ -20,8 +21,8 @@ export const SearchFilterForm: React.FC = () => {
             <div className={styles.filters}>
                 <FilterButton
                     label="Author"
-                    isOpen={openFilter === "author"}
-                    onClick={() => toggleFilter("author")}
+                    isOpen={openFilter === FILTER_TYPES.AUTHOR}
+                    onClick={() => toggleFilter(FILTER_TYPES.AUTHOR)}
                 >
                     <button className={styles.filterItem}>Author 1</button>
                     <button className={styles.filterItem}>Author 2</button>
@@ -30,8 +31,8 @@ export const SearchFilterForm: React.FC = () => {
 
                 <FilterButton
                     label="Genre"
-                    isOpen={openFilter === "genre"}
-                    onClick={() => toggleFilter("genre")}
+                    isOpen={openFilter === FILTER_TYPES.GENRE}
+                    onClick={() => toggleFilter(FILTER_TYPES.GENRE)}
                 >
                     <button className={styles.filterItem}>Abstract</button>
                     <button className={styles.filterItem}>Impressionism</button>
@@ -40,8 +41,8 @@ export const SearchFilterForm: React.FC = () => {
 
                 <FilterButton
                     label="Year"
-                    isOpen={openFilter === "year"}
-                    onClick={() => toggleFilter("year")}
+                    isOpen={openFilter === FILTER_TYPES.YEAR}
+                    onClick={() => toggleFilter(FILTER_TYPES.YEAR)}
                 >
                     <button className={styles.filterItem}>By default</button>
                     <button className={styles.filterItem}>Old</button>

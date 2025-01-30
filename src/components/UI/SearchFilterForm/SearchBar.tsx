@@ -5,13 +5,11 @@ type SearchBarProps = {
   placeholder: string;
 };
 
-export const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
-  return (
+export const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => (
     <div className={styles.searchBar}>
       <input type="text" placeholder={placeholder} className={styles.searchInput} />
       <button className={styles.searchButton}>
         Search
       </button>
     </div>
-  );
-};
+);
