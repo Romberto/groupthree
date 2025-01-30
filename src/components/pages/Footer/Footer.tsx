@@ -12,7 +12,7 @@ const FOOTERITEMLIST: FooterListType = [
   { "Plans & Pricing": ["Personal", "Start up", "Organization"] },
 ];
 
-const Footer: React.FC<FooterPropsType> = ({ className }) => {
+export const Footer: React.FC<FooterPropsType> = ({ className }) => {
   const footerClass = `${styled.footer} ${className ? className : ""}`;
   return (
     <footer className={footerClass}>
@@ -29,4 +29,4 @@ const Footer: React.FC<FooterPropsType> = ({ className }) => {
   );
 };
 
-export default Footer;
+

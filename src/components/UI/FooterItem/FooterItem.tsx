@@ -3,8 +3,15 @@ import styled from "./FooterItem.module.css";
 import { FooterItemProps } from "../../../utils/types";
 
 export const FooterItem: React.FC<FooterItemProps> = ({ className, item }) => {
-  const title = Object.keys(item)[0];
-  const links = Object.values(item)[0];
+  let title: string = "";
+  let links: string[] = [];
+  try {
+    title = Object.keys(item)[0];
+    links = Object.values(item)[0];
+  } catch (error) {
+    console.log(error);
+  }
+
   const FooterItemClass = `${styled.footer__item} ${
     className ? className : ""
   }`;

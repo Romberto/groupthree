@@ -1,4 +1,9 @@
-import { ButtonHTMLAttributes, ChangeEvent, HTMLAttributes, InputHTMLAttributes } from "react";
+import {
+  ButtonHTMLAttributes,
+  ChangeEvent,
+  HTMLAttributes,
+  InputHTMLAttributes,
+} from "react";
 
 export type FooterPropsType = {
   className?: string;
@@ -15,26 +20,25 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export type FooterItemProps = {
-  className?: string;
   item: FooterItemType;
+  className?: string;
 };
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-    value: string;
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    className?: string;
-  };
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+};
 
 export type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
-  className?: string;
   mode: "singIn" | "singUp";
+  className?: string;
 };
 
 export type SelectPropsType = {
-    options: string[];
-  };
+  options: string[];
+};
 
 export type SubscriblePropsType = {
-    className?: string;
-  };
-  
+  className?: string;
+};

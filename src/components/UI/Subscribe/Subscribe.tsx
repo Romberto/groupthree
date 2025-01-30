@@ -5,14 +5,14 @@ import { Input } from "../Input/Input";
 import styled from "./Subscribe.module.css";
 import React, { useState } from "react";
 
+const initiaState = {
+  email: "",
+};
+
 export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const [formData, setFormData] = useState({
-    email: "",
-  });
-  const [error, setError] = useState({
-    email: "",
-  });
+  const [formData, setFormData] = useState(initiaState);
+  const [error, setError] = useState(initiaState);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -73,5 +73,3 @@ export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
     </div>
   );
 };
-
-export default Subscribe;

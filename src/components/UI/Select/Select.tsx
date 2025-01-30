@@ -6,7 +6,13 @@ import { SelectPropsType } from "../../../utils/types";
 
 export const Select: React.FC<SelectPropsType> = ({ options }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>(options[0]);
+  let defaultValue:string = "default"
+  try{
+    defaultValue = options[0]
+  }catch(error){
+    console.error(error)
+  }
+  const [selected, setSelected] = useState<string>(defaultValue);
 
   const onClickSelectHandler = () => {
     setIsVisible(!isVisible);

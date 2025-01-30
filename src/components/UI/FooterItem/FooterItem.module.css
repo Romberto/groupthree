@@ -1,3 +1,15 @@
+.footer__item{
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+}
+
+.footer__item_list{
+  display: flex;
+  flex-direction: column;
+
+}
+
 .footer__item_title {
   font-family: Playfair Display;
   font-size: 20px;
