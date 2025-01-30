@@ -1,75 +1,55 @@
+import { FilterButton } from "./FilterButton";
+import { SearchBar } from "./SearchBar";
 import styles from "./SearchFilterForm.module.css";
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
-const SearchFilterForm: React.FC = () => {
+export const SearchFilterForm: React.FC = () => {
     const [openFilter, setOpenFilter] = useState<string | null>(null);
 
-    const toggleFilter = useCallback((filterType: string) => {
+    const toggleFilter = (filterType: string) => {
         setOpenFilter((prev) => (prev === filterType ? null : filterType));
-    }, []);
+    };
 
     return (
         <div className={styles.filterWrapper}>
 
-            <div className={styles.searchBar}>
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    className={styles.searchInput}
-                />
-                <button className={styles.searchButton}>Search</button>
-            </div>
+            <SearchBar placeholder="Search..." />
 
             <div className={styles.filterTitle}>Filter by:</div>
 
             <div className={styles.filters}>
-                <div
-                    className={`${styles.filterButton} ${openFilter === "author" ? styles.active : ""
-                        }`}
+                <FilterButton
+                    label="Author"
+                    isOpen={openFilter === "author"}
                     onClick={() => toggleFilter("author")}
                 >
-                    Author
-                    {openFilter === "author" && (
-                        <div className={styles.filterList}>
-                            <button className={styles.filterItem}>Author 1</button>
-                            <button className={styles.filterItem}>Author 2</button>
-                            <button className={styles.filterItem}>Author 3</button>
-                        </div>
-                    )}
-                </div>
+                    <button className={styles.filterItem}>Author 1</button>
+                    <button className={styles.filterItem}>Author 2</button>
+                    <button className={styles.filterItem}>Author 3</button>
+                </FilterButton>
 
-                <div
-                    className={`${styles.filterButton} ${openFilter === "genre" ? styles.active : ""
-                        }`}
+                <FilterButton
+                    label="Genre"
+                    isOpen={openFilter === "genre"}
                     onClick={() => toggleFilter("genre")}
                 >
-                    Genre
-                    {openFilter === "genre" && (
-                        <div className={styles.filterList}>
-                            <button className={styles.filterItem}>Abstract</button>
-                            <button className={styles.filterItem}>Impressionism</button>
-                            <button className={styles.filterItem}>Modern</button>
-                        </div>
-                    )}
-                </div>
+                    <button className={styles.filterItem}>Abstract</button>
+                    <button className={styles.filterItem}>Impressionism</button>
+                    <button className={styles.filterItem}>Modern</button>
+                </FilterButton>
 
-                <div
-                    className={`${styles.filterButton} ${openFilter === "year" ? styles.active : ""
-                        }`}
+                <FilterButton
+                    label="Year"
+                    isOpen={openFilter === "year"}
                     onClick={() => toggleFilter("year")}
                 >
-                    Year
-                    {openFilter === "year" && (
-                        <div className={styles.filterList}>
-                            <button className={styles.filterItem}>By default</button>
-                            <button className={styles.filterItem}>Old</button>
-                            <button className={styles.filterItem}>New</button>
-                        </div>
-                    )}
-                </div>
+                    <button className={styles.filterItem}>By default</button>
+                    <button className={styles.filterItem}>Old</button>
+                    <button className={styles.filterItem}>New</button>
+                </FilterButton>
             </div>
         </div>
     );
 };
 
-export default SearchFilterForm;
+
