@@ -1,15 +1,15 @@
 import { isEmaiValid } from "../../../utils/utils";
 import Button from "../Button/Button";
-import Input from "../Input/Input";
+import {Input} from "../Input/Input";
 import styled from "./Subscribe.module.css";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 
 type SubscriblePropsType = {
     className?:string,
 }
 
-const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
-  const [value, setValue] = useState({
+export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
+  const [NewValue, setValue] = useState({
     email: "",
   });
   const [error, setError] = useState({

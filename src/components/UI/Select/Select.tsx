@@ -5,7 +5,7 @@ type SelectPropsType = {
   options: string[];
 };
 
-const Select: React.FC<SelectPropsType> = ({ options }) => {
+export const Select: React.FC<SelectPropsType> = ({ options }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [selected, setSelected] = useState<string>(options[0]);
 
@@ -40,4 +40,4 @@ const Select: React.FC<SelectPropsType> = ({ options }) => {
   );
 };
 
-export default Select;
+

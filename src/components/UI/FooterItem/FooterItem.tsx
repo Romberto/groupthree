@@ -7,7 +7,7 @@ type FooterItemProps = {
     item: FooterItemType
 }
 
-const FooterItem:React.FC<FooterItemProps> = ({className , item}) => {
+export const FooterItem:React.FC<FooterItemProps> = ({className , item}) => {
     const title = Object.keys(item)[0]
     const links = Object.values(item)[0]
     const FooterItemClass = `${styled.footer__item} ${className ? className: ''}`
@@ -22,5 +22,3 @@ const FooterItem:React.FC<FooterItemProps> = ({className , item}) => {
         </div>
   );
 };
-
-export default FooterItem;
