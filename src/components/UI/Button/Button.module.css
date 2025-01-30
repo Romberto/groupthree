@@ -39,3 +39,11 @@
   background-color: var(--lilac);
   color: var(--white);
 }
+
+button:disabled {
+  background-color: var(--dark-gray);
+  color: var(--black);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}

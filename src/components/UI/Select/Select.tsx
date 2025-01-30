@@ -17,7 +17,7 @@ export const Select: React.FC<SelectPropsType> = ({ options }) => {
     const newValue = e.currentTarget.textContent;
     if (newValue) {
       setSelected(newValue);
-      setIsVisible(!isVisible)
+      setIsVisible(!isVisible);
     } else {
       console.error("textContent is null");
     }
@@ -39,5 +39,3 @@ export const Select: React.FC<SelectPropsType> = ({ options }) => {
     </div>
   );
 };
-
-

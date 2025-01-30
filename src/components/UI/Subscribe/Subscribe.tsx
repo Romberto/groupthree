@@ -1,14 +1,15 @@
 import { isEmaiValid } from "../../../utils/utils";
-import Button from "../Button/Button";
-import {Input} from "../Input/Input";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
 import styled from "./Subscribe.module.css";
 import React, { useState } from "react";
 
 type SubscriblePropsType = {
-    className?:string,
-}
+  className?: string;
+};
 
-export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
+export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
+  const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
   });
@@ -29,17 +30,24 @@ export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
         ...prevState,
         [name]: "required field",
       }));
+      setIsDisabled(true);
     } else if (!isMailValid) {
       setError((prevState) => ({
         ...prevState,
         [name]: "incorrect email",
       }));
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
     }
   };
 
-  const onSubmitHandler = (e: React.FormEvent) => {
+  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
+    const isFormValid = Object.values(error).every((error) => error === "");
+    {
+      isFormValid && console.log("отправляем запрос на сервер");
+    }
   };
   const classSub = `${styled.subscribe} ${className ? className : ""}`;
   return (
@@ -58,6 +66,7 @@ export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
         </label>
         <Button
           type="submit"
+          disabled={isDisabled}
           mode="btn-round-rigth"
           className={styled.subscribe__form_btn}
         >

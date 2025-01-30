@@ -1,7 +1,6 @@
-.footer__down_block{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+.footer__down_block {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
-
