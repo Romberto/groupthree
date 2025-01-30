@@ -9,7 +9,7 @@ type SubscriblePropsType = {
 }
 
 export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
-  const [NewValue, setValue] = useState({
+  const [formData, setFormData] = useState({
     email: "",
   });
   const [error, setError] = useState({
@@ -22,7 +22,7 @@ export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
       ...prev,
       [name]: "",
     }));
-    setValue((prevState) => ({ ...prevState, [name]: value }));
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
     const isMailValid = isEmaiValid(value);
     if (!value) {
       setError((prevState) => ({
@@ -49,6 +49,7 @@ export const Subscribe:React.FC<SubscriblePropsType>  = ({className}) => {
         <label>
           <Input
             name="email"
+            value={formData.email}
             className={styled.subscribe__form_input}
             placeholder="Input your email"
             onChange={onChangeHandler}

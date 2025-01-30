@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "./Footer.module.css";
-import Subscribe from "../../UI/Subscribe/Subscribe";
-import FooterItem from "../../UI/FooterItem/FooterItem";
-import FooterDownBlock from "../../UI/FooterDownBlock/FooterDownBlock";
+import { Subscribe } from "../../UI/Subscribe/Subscribe";
+import { FooterItem } from "../../UI/FooterItem/FooterItem";
+import { FooterDownBlock } from "../../UI/FooterDownBlock/FooterDownBlock";
 
 export type FooterItemType = {
   [key: string]: string[];
@@ -17,21 +17,22 @@ const FOOTERITEMLIST: FooterListType = [
 ];
 
 type FooterPropsType = {
-  className?: string
-}
+  className?: string;
+};
 
-const Footer:React.FC<FooterPropsType> = ({className}) => {
-  const footerClass = `${styled.footer} ${className ? className : ""}`
+const Footer: React.FC<FooterPropsType> = ({ className }) => {
+  const footerClass = `${styled.footer} ${className ? className : ""}`;
   return (
     <footer className={footerClass}>
-      <Subscribe className={styled.subscrible}/>
+      <Subscribe className={styled.subscrible} />
       <ul className={styled.footer__list}>
         {FOOTERITEMLIST.map((item, index) => (
-          <li key={index}><FooterItem item={item}/></li>
+          <li key={index}>
+            <FooterItem item={item} />
+          </li>
         ))}
       </ul>
-      <FooterDownBlock/>
-      
+      <FooterDownBlock />
     </footer>
   );
 };
