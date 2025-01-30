@@ -3,22 +3,14 @@ import styled from "./Footer.module.css";
 import { Subscribe } from "../../UI/Subscribe/Subscribe";
 import { FooterItem } from "../../UI/FooterItem/FooterItem";
 import { FooterDownBlock } from "../../UI/FooterDownBlock/FooterDownBlock";
+import { FooterListType, FooterPropsType } from "../../../utils/types";
 
-export type FooterItemType = {
-  [key: string]: string[];
-};
-
-type FooterListType = FooterItemType[];
 const FOOTERITEMLIST: FooterListType = [
   { Product: ["Features", "Pricing"] },
   { Resources: ["Blog", "User guides", "User guides"] },
   { Company: ["About us", "Contact us"] },
   { "Plans & Pricing": ["Personal", "Start up", "Organization"] },
 ];
-
-type FooterPropsType = {
-  className?: string;
-};
 
 const Footer: React.FC<FooterPropsType> = ({ className }) => {
   const footerClass = `${styled.footer} ${className ? className : ""}`;

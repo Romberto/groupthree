@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, HTMLAttributes } from "react";
+import React, { FormEvent, useState } from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import styled from "./RegisterForm.module.css";
@@ -8,11 +8,7 @@ import {
   isEmaiValid,
   LogIn,
 } from "../../../utils/utils";
-
-type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
-  className?: string;
-  mode: "singIn" | "singUp";
-};
+import { RegisterFormProps } from "../../../utils/types";
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,

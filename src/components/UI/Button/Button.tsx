@@ -1,10 +1,5 @@
-import { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
-
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  mode: "btn-violet" | "btn-white" | "btn-round-rigth";
-  className?: string;
-};
+import { ButtonProps } from "../../../utils/types";
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -25,5 +20,3 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-

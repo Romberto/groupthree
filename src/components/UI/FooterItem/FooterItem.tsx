@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "./FooterItem.module.css";
-import { FooterItemType } from "../../pages/Footer/Footer";
-
-type FooterItemProps = {
-  className?: string;
-  item: FooterItemType;
-};
+import { FooterItemProps } from "../../../utils/types";
 
 export const FooterItem: React.FC<FooterItemProps> = ({ className, item }) => {
   const title = Object.keys(item)[0];

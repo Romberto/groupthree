@@ -1,11 +1,5 @@
-import { InputHTMLAttributes, ChangeEvent } from "react";
 import styled from "./Input.module.css";
-
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
-};
+import { InputProps } from "../../../utils/types";
 
 export const Input: React.FC<InputProps> = ({
   className,

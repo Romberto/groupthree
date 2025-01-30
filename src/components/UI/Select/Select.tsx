@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "./Select.module.css";
+import { SelectPropsType } from "../../../utils/types";
 
-type SelectPropsType = {
-  options: string[];
-};
+
 
 export const Select: React.FC<SelectPropsType> = ({ options }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

@@ -1,12 +1,9 @@
+import { SubscriblePropsType } from "../../../utils/types";
 import { isEmaiValid } from "../../../utils/utils";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import styled from "./Subscribe.module.css";
 import React, { useState } from "react";
-
-type SubscriblePropsType = {
-  className?: string;
-};
 
 export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
   const [isDisabled, setIsDisabled] = useState(true);
