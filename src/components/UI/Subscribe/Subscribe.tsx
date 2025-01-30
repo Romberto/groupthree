@@ -50,7 +50,7 @@ export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
   return (
     <div className={classSub}>
       <h3>Subscribe to our newsletter</h3>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} className={styled.sub_form}>
         <label>
           <Input
             name="email"

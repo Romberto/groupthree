@@ -58,8 +58,6 @@
 
 .header_button {
   width: 160px;
-  display: flex;
-  justify-content: center;
   font-size: 14px;
   line-height: 22px;
 }

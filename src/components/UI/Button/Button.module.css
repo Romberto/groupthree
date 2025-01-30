@@ -1,6 +1,8 @@
 .btn_violet,
 .btn_white,
 .btn_round_right {
+  display: flex;
+  justify-content: center;
   padding: 6px 22px;
   border-radius: 6px;
   border: 1px solid var(--lilac);
