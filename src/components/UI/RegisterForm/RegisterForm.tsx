@@ -1,6 +1,6 @@
-import React, { FormEvent, useState, HTMLAttributes } from "react";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import React, { FormEvent, useState } from "react";
+import { Input } from "../Input/Input";
+import { Button } from "../Button/Button";
 import styled from "./RegisterForm.module.css";
 import {
   addUser,
@@ -8,13 +8,9 @@ import {
   isEmaiValid,
   LogIn,
 } from "../../../utils/utils";
+import { RegisterFormProps } from "../../../utils/types";
 
-type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
-  className?: string;
-  mode: "singIn" | "singUp";
-};
-
-const RegisterForm: React.FC<RegisterFormProps> = ({
+export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
   mode,
   ...rest
@@ -136,5 +132,3 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
     </form>
   );
 };
-
-export default RegisterForm;
