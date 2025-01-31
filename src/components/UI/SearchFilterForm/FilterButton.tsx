@@ -1,12 +1,7 @@
 import React from "react";
 import styles from "./FilterButton.module.css";
+import { FilterButtonProps } from "../../../utils/types";
 
-type FilterButtonProps = {
-  label: string;
-  isOpen: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-};
 
 export const FilterButton: React.FC<FilterButtonProps> = ({ label, isOpen, onClick, children }) => {
   return (
