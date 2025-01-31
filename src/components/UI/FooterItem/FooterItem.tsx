@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "./FooterItem.module.css";
-import { FooterItemProps } from "../../../utils/types";
+import { FooterItemProps } from "@/utils/types";
 
 export const FooterItem: React.FC<FooterItemProps> = ({ className, item }) => {
   let title: string = "";

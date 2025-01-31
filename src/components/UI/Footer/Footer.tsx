@@ -3,7 +3,7 @@ import styled from "./Footer.module.css";
 import { Subscribe } from "../Subscribe/Subscribe";
 import { FooterItem } from "../FooterItem/FooterItem";
 import { FooterDownBlock } from "../FooterDownBlock/FooterDownBlock";
-import { FooterListType, FooterPropsType } from "../../../utils/types";
+import { FooterListType, FooterPropsType } from "@/utils/types";
 
 const FOOTERITEMLIST: FooterListType = [
   { Product: ["Features", "Pricing"] },

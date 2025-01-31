@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from "react";
 import styles from "./Header.module.css";
 import { Button } from "../Button/Button";
-import logo from "../../../assets/logo.svg";
-import arrow from "../../../assets/arrow.svg";
-import help from "../../../assets/help.svg";
+import logo from "@/assets/logo.svg";
+import arrow from "@/assets/arrow.svg";
+import help from "@/assets/help.svg";
 
 type NavList = "home" | "search" | "favorites";
 const headerNavList: NavList[] = ["home", "search", "favorites"];

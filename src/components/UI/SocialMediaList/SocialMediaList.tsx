@@ -1,23 +1,17 @@
-import React from "react"
-import styled from './SocialMediaList.module.css'
-import { v4 as uuidv4 } from "uuid";
+import React from "react";
+import styled from "./SocialMediaList.module.css";
+import { SocialMediaListProps } from "@/utils/types";
 
-export type SocialMediaItemType = {
-    id: string,
-    img: string,
-}
-
-export type SocialMediaListType = {
-    data: SocialMediaItemType[]
-}
-
-
-
-export const SocialMediaList:React.FC<SocialMediaListType> = (props) => {
+export const SocialMediaList: React.FC<SocialMediaListProps> = ({ data }) => {
   return (
-    <div>
-      
-    </div>
-  )
+    <ul className={styled.soc__list}>
+      {data.map((item) => (
+        <li key={item.id} className={styled.soc__item}>
+          <a href="#" className={styled.soc__link}>
+            <img src={item.img} className={styled.soc__img} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 };
-
