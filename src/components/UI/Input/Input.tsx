@@ -1,13 +1,19 @@
-import { InputHTMLAttributes } from "react";
 import styled from "./Input.module.css";
+import { InputProps } from "../../../utils/types";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  className?: string;
+export const Input: React.FC<InputProps> = ({
+  className,
+  value,
+  onChange,
+  ...rest
+}) => {
+  const InputClass = `${styled.input} ${className ? className : ""}`;
+  return (
+    <input
+      {...rest}
+      value={value}
+      onChange={onChange}
+      className={InputClass}
+    ></input>
+  );
 };
-
-const Input: React.FC<InputProps> = ({ className, ...rest }) => {
-  const InputClass = `${styled.input} ${className ? className : ''}`
-  return <input {...rest} className={InputClass}></input>;
-};
-
-export default Input;
