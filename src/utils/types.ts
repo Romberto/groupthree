@@ -48,3 +48,7 @@ export type NavList = {
   link: 'home' | 'search' | 'favorites',
   path: PATH
 }
+
+export type AuthPageProps = {
+  mode: "singIn" | "singUp";
+}
