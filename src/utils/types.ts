@@ -4,6 +4,7 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
 } from "react";
+import { PATH } from "./constants";
 
 export type FooterPropsType = {
   className?: string;
@@ -42,3 +43,8 @@ export type SelectPropsType = {
 export type SubscriblePropsType = {
   className?: string;
 };
+
+export type NavList = {
+  link: 'home' | 'search' | 'favorites',
+  path: PATH
+}

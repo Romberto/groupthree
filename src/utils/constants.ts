@@ -1,3 +1,5 @@
+import { NavList } from "./types";
+
 export enum PATH {
   HOME = '/',
   SEARCH = '/search',
@@ -6,3 +8,18 @@ export enum PATH {
   SIGNIN = '/sign-in',
   SIGNUP = '/sign-up'
 }
+
+export const headerNavList: NavList[] = [
+  {
+    link: 'home',
+    path: PATH.HOME
+  },
+  {
+    link: 'search',
+    path: PATH.SEARCH
+  },
+  {
+    link: 'favorites',
+    path: PATH.FAVORITES
+  }
+]
