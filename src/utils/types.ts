@@ -42,3 +42,12 @@ export type SelectPropsType = {
 export type SubscriblePropsType = {
   className?: string;
 };
+export type SocialMediaItemType = {
+  id: string;
+  img: string;
+};
+
+export type SocialMediaListProps = {
+  data: SocialMediaItemType[];
+  className?: string
+};
