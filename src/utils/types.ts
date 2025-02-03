@@ -53,3 +53,14 @@ export type FilterButtonProps = {
 export type SearchBarProps = {
   placeholder: string;
 };
+
+export type SocialMediaItemType = {
+  id: string;
+  img: string;
+};
+
+export type SocialMediaListProps = {
+  data: SocialMediaItemType[];
+  className?: string
+
+};

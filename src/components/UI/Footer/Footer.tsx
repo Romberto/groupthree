@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "./Footer.module.css";
-import { Subscribe } from "../../UI/Subscribe/Subscribe";
-import { FooterItem } from "../../UI/FooterItem/FooterItem";
-import { FooterDownBlock } from "../../UI/FooterDownBlock/FooterDownBlock";
-import { FooterListType, FooterPropsType } from "../../../utils/types";
+import { Subscribe } from "../Subscribe/Subscribe";
+import { FooterItem } from "../FooterItem/FooterItem";
+import { FooterDownBlock } from "../FooterDownBlock/FooterDownBlock";
+import { FooterListType, FooterPropsType } from "@/utils/types";
 
 const FOOTERITEMLIST: FooterListType = [
   { Product: ["Features", "Pricing"] },
