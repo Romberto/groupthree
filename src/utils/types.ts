@@ -42,6 +42,18 @@ export type SelectPropsType = {
 export type SubscriblePropsType = {
   className?: string;
 };
+
+export type FilterButtonProps = {
+  label: string;
+  isOpen: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+export type SearchBarProps = {
+  placeholder: string;
+};
+
 export type SocialMediaItemType = {
   id: string;
   img: string;
@@ -50,4 +62,5 @@ export type SocialMediaItemType = {
 export type SocialMediaListProps = {
   data: SocialMediaItemType[];
   className?: string
+
 };
