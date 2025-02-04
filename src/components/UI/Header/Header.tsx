@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ isAuth }) => {
     if (isAuth) {
       logOut()
     } else {
-      navigate('/sign-up')
+      navigate(PATH.SIGNUP)
     }
   }
 
