@@ -1,3 +1,29 @@
+import { NavList } from "./types";
+
+export enum PATH {
+  HOME = '/',
+  SEARCH = '/search',
+  FAVORITES = '/favorites',
+  HISTORY = '/hitory',
+  SIGNIN = '/sign-in',
+  SIGNUP = '/sign-up'
+}
+
+export const headerNavList: NavList[] = [
+  {
+    link: 'home',
+    path: PATH.HOME
+  },
+  {
+    link: 'search',
+    path: PATH.SEARCH
+  },
+  {
+    link: 'favorites',
+    path: PATH.FAVORITES
+  }
+]
+
 import facebook from "@/assets/facebook.svg";
 import twitter from "@/assets/twitter.svg";
 import instagram from "@/assets/instagram.svg";
@@ -22,3 +48,4 @@ export const SOCIALLIST: SocialMediaItemType[] =
 ;
 
 export const LANGUAGES = ["English", "Deutsch", "Français", "Русский"];
+

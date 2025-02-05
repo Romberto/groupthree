@@ -27,6 +27,14 @@ export function LogIn(email: string, password: string) {
   }
 }
 
+export function logOut() {
+  const user = window.localStorage.getItem("User");
+  
+  if (user) {
+    window.localStorage.removeItem("User")
+  }
+}
+
 export function isEmaiValid(value: string) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(value);

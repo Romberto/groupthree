@@ -9,12 +9,15 @@ import {
   LogIn,
 } from "../../../utils/utils";
 import { RegisterFormProps } from "../../../utils/types";
+import { useNavigate } from "react-router";
+import { PATH } from "../../../utils/constants";
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
   mode,
   ...rest
 }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -40,15 +43,17 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
             form: "Invalid email or password",
           }));
         }
+        navigate(PATH.HOME)
       } else {
         const isMailEx = EmailAlreadyEx(email);
-        {
-          !isMailEx
-            ? addUser(email, password)
-            : setFormErrors((prevState) => ({
-                ...prevState,
-                form: "Email already registered",
-              }));
+        if (!isMailEx) {
+          addUser(email, password)
+          navigate(PATH.HOME)
+        } else {
+          setFormErrors((prevState) => ({
+            ...prevState,
+            form: "Email already registered",
+          }));
         }
       }
     } else {

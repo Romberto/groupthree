@@ -4,6 +4,7 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
 } from "react";
+import { PATH } from "./constants";
 
 export type FooterPropsType = {
   className?: string;
@@ -43,6 +44,16 @@ export type SubscriblePropsType = {
   className?: string;
 };
 
+
+export type NavList = {
+  link: 'home' | 'search' | 'favorites',
+  path: PATH
+}
+
+export type AuthPageProps = {
+  mode: "singIn" | "singUp";
+}
+
 export type FilterButtonProps = {
   label: string;
   isOpen: boolean;
@@ -64,3 +75,4 @@ export type SocialMediaListProps = {
   className?: string
 
 };
+
