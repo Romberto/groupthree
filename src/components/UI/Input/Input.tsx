@@ -1,5 +1,5 @@
 import styled from "./Input.module.css";
-import { InputProps } from "../../../utils/types";
+import { InputProps } from "@/utils/types";
 
 export const Input: React.FC<InputProps> = ({
   className,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "./Select.module.css";
-import { SelectPropsType } from "../../../utils/types";
+import { SelectPropsType } from "@/utils/types";
 
 
 

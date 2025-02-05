@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.sub_form{
+  display: flex;
+  align-items: center;
+}
 .subscribe h3 {
   text-align: center;
   font-family: Playfair Display;
@@ -19,7 +23,7 @@
 
 .subscribe__form_btn {
   height: 35px;
-  padding: 0 22px;
+  line-height: 22px;
 }
 
 .subscribe label {

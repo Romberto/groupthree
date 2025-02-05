@@ -1,12 +1,12 @@
 import React, { HTMLAttributes } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import styles from './Header.module.css'
-import logo from '../../../assets/logo.svg'
-import arrow from '../../../assets/arrow.svg'
-import help from '../../../assets/help.svg'
-import { Button } from "../Button/Button.tsx"
+import styles from "./Header.module.css";
+import { Button } from "../Button/Button";
+import logo from "@/assets/logo.svg";
+import arrow from "@/assets/arrow.svg";
+import help from "@/assets/help.svg";
 import { headerNavList, PATH } from "../../../utils/constants.ts";
-import { logOut } from "../../../utils/utils.tsx";
+import { logOut } from "../../../utils/utils.tsx";        
 
 type HeaderProps = HTMLAttributes<HTMLHeadElement> & {
   isAuth: boolean;

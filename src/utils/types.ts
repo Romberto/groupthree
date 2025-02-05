@@ -44,6 +44,7 @@ export type SubscriblePropsType = {
   className?: string;
 };
 
+
 export type NavList = {
   link: 'home' | 'search' | 'favorites',
   path: PATH
@@ -52,3 +53,26 @@ export type NavList = {
 export type AuthPageProps = {
   mode: "singIn" | "singUp";
 }
+
+export type FilterButtonProps = {
+  label: string;
+  isOpen: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+export type SearchBarProps = {
+  placeholder: string;
+};
+
+export type SocialMediaItemType = {
+  id: string;
+  img: string;
+};
+
+export type SocialMediaListProps = {
+  data: SocialMediaItemType[];
+  className?: string
+
+};
+

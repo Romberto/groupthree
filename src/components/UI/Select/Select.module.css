@@ -20,7 +20,7 @@
 }
 
 .select_box::after {
-  content: url(../../../../public/down_large.svg);
+  content: url(../../../assets/down_large.svg);
   position: absolute;
   height: 20px;
   width: 20px;
