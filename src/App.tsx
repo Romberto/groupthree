@@ -8,6 +8,7 @@ import { ProtectedRouteElement } from "./components/services/ProtectedRouteEleme
 import { Header } from "./components/UI/Header/Header.tsx";
 import { AuthPage } from "./components/pages/AuthPage/AuthPage.tsx";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { Footer } from "./components/UI/Footer/Footer.tsx";
 
 function App() {
   const user = localStorage.getItem("User");
@@ -25,7 +26,6 @@ function App() {
     <div className="container">
       <Header isAuth={isAuth} />
       <main>
-        <BrowserRouter>
           <Routes>
             <Route path={PATH.HOME} element={<HomePage />} />
             <Route path={PATH.SEARCH} element={<SearchPage />} />
@@ -37,8 +37,8 @@ function App() {
             <Route path={PATH.SIGNIN} element={<AuthPage mode={"singIn"} />} />
             <Route path={PATH.SIGNUP} element={<AuthPage mode={"singUp"} />} />
           </Routes>
-        </BrowserRouter>
       </main>
+      <Footer/>
     </div>
   );
 }
