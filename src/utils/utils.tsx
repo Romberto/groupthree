@@ -62,3 +62,7 @@ export function EmailAlreadyEx(email: string) {
     }
   }
 }
+// формирует путь для изображения 
+export const makeImagePath = (image_id:string) => {
+  return `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`
+}
