@@ -4,6 +4,7 @@ import { Subscribe } from "../Subscribe/Subscribe";
 import { FooterItem } from "../FooterItem/FooterItem";
 import { FooterDownBlock } from "../FooterDownBlock/FooterDownBlock";
 import { FooterListType, FooterPropsType } from "@/utils/types";
+import { Logo } from "../Logo/Logo.tsx";
 
 const FOOTERITEMLIST: FooterListType = [
   { Product: ["Features", "Pricing"] },
@@ -16,6 +17,7 @@ export const Footer: React.FC<FooterPropsType> = ({ className }) => {
   const footerClass = `${styled.footer} ${className ? className : ""}`;
   return (
     <footer className={footerClass}>
+      <Logo className={styled.footer__logo} />
       <Subscribe className={styled.subscrible} />
       <ul className={styled.footer__list}>
         {FOOTERITEMLIST.map((item, index) => (

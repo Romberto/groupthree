@@ -6,6 +6,10 @@ import {
 } from "react";
 import { PATH } from "./constants";
 
+export type LogoType = {
+  className?: string;
+};
+
 export type FooterPropsType = {
   className?: string;
 };

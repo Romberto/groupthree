@@ -1,12 +1,13 @@
 import React, { HTMLAttributes } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import styles from "./Header.module.css";
-import { Button } from "../Button/Button";
-import logo from "@/assets/logo.svg";
 import arrow from "@/assets/arrow.svg";
 import help from "@/assets/help.svg";
-import { headerNavList, PATH } from "../../../utils/constants.ts";
-import { logOut } from "../../../utils/utils.tsx";        
+import { headerNavList, PATH } from "@/utils/constants.ts";
+import { logOut } from "@/utils/utils.tsx";    
+import { Button } from "../Button/Button";
+import { Logo } from "../Logo/Logo.tsx";
+    
 
 type HeaderProps = HTMLAttributes<HTMLHeadElement> & {
   isAuth: boolean;
@@ -27,7 +28,9 @@ export const Header: React.FC<HeaderProps> = ({ isAuth }) => {
   return (
     <header className={styles.header}>
       <nav className={styles.header_nav}>
-        <Link to={PATH.HOME}><img src={logo} /></Link>
+        <Link to={PATH.HOME}>
+          <Logo className={styles.header_logo} />
+        </Link>
         <ul className={styles.nav_links}>
           {
             headerNavList.map((item, index) => (
