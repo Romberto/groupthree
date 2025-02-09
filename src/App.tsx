@@ -8,6 +8,7 @@ import { HistoryPage } from "./components/pages/HistoryPage/HistoryPage.tsx";
 import { ProtectedRouteElement } from "./components/services/ProtectedRouteElement.tsx";
 import { Header } from "./components/UI/Header/Header.tsx";
 import { AuthPage } from "./components/pages/AuthPage/AuthPage.tsx";
+import { Footer } from "./components/UI/Footer/Footer.tsx";
 
 function App() {
   const user = localStorage.getItem("User")
@@ -34,6 +35,7 @@ function App() {
           <Route path={PATH.SIGNUP} element={<AuthPage mode={'singUp'} />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
