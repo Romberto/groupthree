@@ -8,7 +8,11 @@ export const FooterDownBlock = () => {
     <div className={styled.footer__down_block}>
       <Select options={LANGUAGES} />
       <span>© 2024 Brand, Inc.</span>
-      <SocialMediaList data={SOCIALLIST}/>
+      <SocialMediaList
+        containerClass={styled.footer__soc_container}
+        itemClass={styled.footer__soc_item}
+        data={SOCIALLIST}
+      />
     </div>
   );
 };

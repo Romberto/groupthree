@@ -72,7 +72,7 @@ export type SocialMediaItemType = {
 
 export type SocialMediaListProps = {
   data: SocialMediaItemType[];
-  className?: string
-
+  containerClass?: string
+  itemClass?: string
 };
 
