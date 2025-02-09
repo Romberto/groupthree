@@ -76,3 +76,12 @@ export type SocialMediaListProps = {
 
 };
 
+export type ProtectedRouteElementType = {
+  element: JSX.Element
+}
+
+export type LocalUserType = {
+  email: string,
+  password: string,
+  auth: boolean
+}

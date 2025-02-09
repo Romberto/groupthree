@@ -15,7 +15,7 @@ export enum APIPATH{
   GETFIELDS = "?fields=id,title,artist_display,date_display,description,image_id,date_endl",
 }
 
-
+export const LOCALUSER = 'User'
 
 export const headerNavList: NavList[] = [
   {

@@ -7,16 +7,22 @@ import {
   EmailAlreadyEx,
   isEmaiValid,
   LogIn,
-} from "../../../utils/utils";
-import { RegisterFormProps } from "../../../utils/types";
+} from "@/utils/utils";
+import { RegisterFormProps } from "@/utils/types";
 import { useNavigate } from "react-router";
-import { PATH } from "../../../utils/constants";
+import { PATH } from "@/utils/constants";
+import { useAppDispatch } from "@/app/hooks";
+import {
+  userAuthenticatedAction,
+  userRegisterAction,
+} from "@/components/pages/AuthPage/AuthSlice";
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
   mode,
   ...rest
 }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -43,12 +49,15 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
             form: "Invalid email or password",
           }));
         } else {
+          dispatch(
+            userAuthenticatedAction({ email: email, password: password })
+          );
           navigate(PATH.HOME);
         }
       } else {
         const isMailEx = EmailAlreadyEx(email);
         if (!isMailEx) {
-          addUser(email, password);
+          dispatch(userRegisterAction({ email: email, password: password }));
           navigate(PATH.HOME);
         } else {
           setFormErrors((prevState) => ({

@@ -10,12 +10,9 @@ import { Route, Routes } from "react-router";
 import { Footer } from "./components/UI/Footer/Footer.tsx";
 
 function App() {
-  const user = localStorage.getItem("User");
-  console.log(user);
-
   return (
     <div className="container">
-      <ProtectedRouteElement element={<Header isAuth={false} />} />
+      <Header />
       <main>
         <Routes>
           <Route path={PATH.HOME} element={<HomePage />} />

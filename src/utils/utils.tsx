@@ -1,3 +1,5 @@
+import { LOCALUSER } from "./constants";
+
 type User = {
   email: string;
   password: string;
@@ -5,7 +7,7 @@ type User = {
 };
 
 export function LogIn(email: string, password: string) {
-  const user = window.localStorage.getItem("User");
+  const user = window.localStorage.getItem(LOCALUSER);
   if (user) {
     try {
       const parsedUser: User = JSON.parse(user);
@@ -14,8 +16,8 @@ export function LogIn(email: string, password: string) {
         password === parsedUser.password
       ) {
         window.localStorage.setItem(
-          "User",
-          JSON.stringify({ email: email, password: password, auth: true })
+          LOCALUSER,
+          JSON.stringify({ ...parsedUser, auth: true })
         );
         return user;
       }
@@ -28,10 +30,26 @@ export function LogIn(email: string, password: string) {
 }
 
 export function logOut() {
-  const user = window.localStorage.getItem("User");
-  
+  const user = window.localStorage.getItem(LOCALUSER);
   if (user) {
-    window.localStorage.removeItem("User")
+    let currentUser = JSON.parse(user)
+    currentUser.auth = false;
+    window.localStorage.setItem(LOCALUSER, JSON.stringify({...currentUser}))
+  }
+}
+
+export function isUserAuth(){
+  const data = window.localStorage.getItem(LOCALUSER)
+  if(data){
+    const dataAuth = JSON.parse(data).auth
+    console.log(dataAuth)
+    if(dataAuth){
+      return true
+    }else{
+      return false
+    }
+  }else{
+    return false
   }
 }
 
@@ -42,13 +60,13 @@ export function isEmaiValid(value: string) {
 
 export function addUser(email: string, password: string) {
   window.localStorage.setItem(
-    "User",
+    LOCALUSER,
     JSON.stringify({ email: email, password: password, auth: true })
   );
 }
 // проверка есть ли пользователь с таким email
 export function EmailAlreadyEx(email: string) {
-  const localUser = window.localStorage.getItem("User");
+  const localUser = window.localStorage.getItem(LOCALUSER);
   if (localUser) {
     try {
       const localEmail = JSON.parse(localUser).email;

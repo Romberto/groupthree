@@ -6,16 +6,15 @@ import ReactDOM from "react-dom";
 import { useNavigate } from "react-router";
 import { PATH } from "@/utils/constants";
 
-
 export const AuthPage: FC<AuthPageProps> = ({ mode }) => {
   const portalRoot = document.getElementById("form-root");
   const navigate = useNavigate();
 
-  const handleModulClick = (e:MouseEvent)=>{
-    if(e.target === e.currentTarget){
-      navigate(PATH.HOME)
+  const handleModulClick = (e: MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      navigate(PATH.HOME);
     }
-  }
+  };
   if (!portalRoot) {
     return null;
   }
