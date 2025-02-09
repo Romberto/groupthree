@@ -17,7 +17,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   mode,
   ...rest
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -42,13 +42,14 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
             ...prevState,
             form: "Invalid email or password",
           }));
+        } else {
+          navigate(PATH.HOME);
         }
-        navigate(PATH.HOME)
       } else {
         const isMailEx = EmailAlreadyEx(email);
         if (!isMailEx) {
-          addUser(email, password)
-          navigate(PATH.HOME)
+          addUser(email, password);
+          navigate(PATH.HOME);
         } else {
           setFormErrors((prevState) => ({
             ...prevState,
