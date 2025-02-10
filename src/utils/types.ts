@@ -80,6 +80,21 @@ export type SocialMediaListProps = {
   itemClass?: string
 };
 
+export type ArtworkCardProps = {
+  title: string;
+  artist: string;
+  date: string;
+  imageId: string | null;
+};
+
+export type Artwork = {
+  id: number;
+  title: string;
+  artist_display: string;
+  date_display: string;
+  image_id: string | null;
+};
+
 export type ProtectedRouteElementType = {
   element: JSX.Element
 }
@@ -89,3 +104,4 @@ export type LocalUserType = {
   password: string,
   auth: boolean
 }
+

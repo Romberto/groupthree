@@ -1,0 +1,25 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 274px; 
+}
+
+.image {
+    width: 274px; 
+    height: 162px; 
+    object-fit: cover; /* Обрезаем с сохранением пропорций */
+}
+
+.title {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.artist,
+.date {
+    font-size: 14px;
+    color: #555;
+}
