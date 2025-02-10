@@ -9,6 +9,14 @@ export enum PATH {
   SIGNUP = '/sign-up'
 }
 
+export enum APIPATH{
+  ENDPOINT = 'https://api.artic.edu/api/v1/artworks',
+  GETPAGE = "&limit=12&page=",
+  GETFIELDS = "?fields=id,title,artist_display,date_display,description,image_id,date_endl",
+}
+
+export const LOCALUSER = 'User'
+
 export const headerNavList: NavList[] = [
   {
     link: 'home',
