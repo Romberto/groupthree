@@ -10,6 +10,7 @@
   row-gap: 15px;
   border-radius: 6px;
   box-shadow: var(--lilac) 1px 1px 5px 0px;
+  background: var(--white);
 }
 .form_error {
   font-size: 12px;
