@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.header_logo {
+  width: 170px;
+  height: 42px;
+}
+
 .nav_links {
     display: flex;
 }
