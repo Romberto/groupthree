@@ -6,6 +6,10 @@ import {
 } from "react";
 import { PATH } from "./constants";
 
+export type LogoType = {
+  className?: string;
+};
+
 export type FooterPropsType = {
   className?: string;
 };
@@ -72,8 +76,8 @@ export type SocialMediaItemType = {
 
 export type SocialMediaListProps = {
   data: SocialMediaItemType[];
-  className?: string
-
+  containerClass?: string
+  itemClass?: string
 };
 
 export type ProtectedRouteElementType = {

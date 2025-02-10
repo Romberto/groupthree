@@ -4,3 +4,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.footer__soc_container {
+  gap: 18px;
+}
+
+.footer__soc_item {
+  width: 22px;
+}

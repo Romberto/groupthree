@@ -1,9 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router";
 import styles from "./Header.module.css";
-import { Button } from "../Button/Button";
-import logo from "@/assets/logo.svg";
+import arrow from "@/assets/arrow.svg";
+import help from "@/assets/help.svg";
 import { headerNavList, LOCALUSER, PATH } from "@/utils/constants.ts";
-import { logOut } from "@/utils/utils.tsx";
+import { logOut } from "@/utils/utils.tsx";   
+import { Button } from "../Button/Button";
+import { Logo } from "../Logo/Logo.tsx";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { userLogOutAction, isAuthAction } from "@/components/pages/AuthPage/AuthSlice";
@@ -34,7 +36,7 @@ export const Header = () => {
     <header className={styles.header}>
       <nav className={styles.header_nav}>
         <Link to={PATH.HOME}>
-          <img src={logo} />
+          <Logo className={styles.header_logo} />
         </Link>
         <ul className={styles.nav_links}>
           {headerNavList.map((item, index) => (
