@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./ArtworkList.module.css";
 import { Artwork } from "@/utils/types";
 import { ArtworkCard } from "./ArtworkCard";
+import { ARTWORKS_ENDPOINT } from "@/utils/constants";
 
 export const ArtworkList: React.FC = () => {
     const [artworks, setArtworks] = useState<Artwork[]>([]);
@@ -10,7 +11,7 @@ export const ArtworkList: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch("https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,image_id&limit=36")
+        fetch(ARTWORKS_ENDPOINT)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch artworks");

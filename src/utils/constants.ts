@@ -49,3 +49,15 @@ export const SOCIALLIST: SocialMediaItemType[] =
 
 export const LANGUAGES = ["English", "Deutsch", "Français", "Русский"];
 
+// Основной API URL
+export const BASE_API_URL = "https://api.artic.edu/api/v1";
+
+// IIIF URL для изображений
+export const BASE_IMAGE_URL = "https://www.artic.edu/iiif/2";
+
+// Заглушка для изображений
+export const PLACEHOLDER_IMAGE = "https://via.placeholder.com/843x843?text=No+Image";
+
+// Эндпоинт для получения списка картин с нужными полями
+export const ARTWORKS_ENDPOINT = `${BASE_API_URL}/artworks?fields=id,title,artist_display,date_display,image_id&limit=36`;
+
