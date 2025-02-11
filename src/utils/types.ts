@@ -3,8 +3,8 @@ import {
   ChangeEvent,
   HTMLAttributes,
   InputHTMLAttributes,
-} from "react";
-import { PATH } from "./constants";
+} from 'react';
+import { PATH } from './constants';
 
 export type LogoType = {
   className?: string;
@@ -20,7 +20,7 @@ export type FooterItemType = {
 export type FooterListType = FooterItemType[];
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  mode: "btn-violet" | "btn-white" | "btn-round-rigth";
+  mode: 'btn-violet' | 'btn-white' | 'btn-round-rigth';
   className?: string;
 };
 
@@ -36,7 +36,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
-  mode: "singIn" | "singUp";
+  mode: 'singIn' | 'singUp';
   className?: string;
 };
 
@@ -48,15 +48,14 @@ export type SubscriblePropsType = {
   className?: string;
 };
 
-
 export type NavList = {
-  link: 'home' | 'search' | 'favorites',
-  path: PATH
-}
+  link: 'home' | 'search' | 'favorites';
+  path: PATH;
+};
 
 export type AuthPageProps = {
-  mode: "singIn" | "singUp";
-}
+  mode: 'singIn' | 'singUp';
+};
 
 export type FilterButtonProps = {
   label: string;
@@ -76,8 +75,8 @@ export type SocialMediaItemType = {
 
 export type SocialMediaListProps = {
   data: SocialMediaItemType[];
-  containerClass?: string
-  itemClass?: string
+  containerClass?: string;
+  itemClass?: string;
 };
 
 export type ArtworkCardProps = {
@@ -96,12 +95,11 @@ export type Artwork = {
 };
 
 export type ProtectedRouteElementType = {
-  element: JSX.Element
-}
+  element: JSX.Element;
+};
 
 export type LocalUserType = {
-  email: string,
-  password: string,
-  auth: boolean
-}
-
+  email: string;
+  password: string;
+  auth: boolean;
+};

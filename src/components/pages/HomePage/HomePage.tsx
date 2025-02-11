@@ -1,9 +1,9 @@
-import styles from "./HomePage.module.css";
-import { Button } from "@/components/UI/Button/Button";
-import introVideo from "@/assets/intro-video.mp4";
-import introPoster from "@/assets/intro_poster.jpg";
-import { SocialMediaList } from "@/components/UI/SocialMediaList/SocialMediaList";
-import { SOCIALLIST } from "@/utils/constants";
+import styles from './HomePage.module.css';
+import { Button } from '@/components/UI/Button/Button';
+import introVideo from '@/assets/intro-video.mp4';
+import introPoster from '@/assets/intro_poster.jpg';
+import { SocialMediaList } from '@/components/UI/SocialMediaList/SocialMediaList';
+import { SOCIALLIST } from '@/utils/constants';
 
 export const HomePage = () => {
   return (
