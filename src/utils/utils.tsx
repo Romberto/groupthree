@@ -39,7 +39,7 @@ export function isUserAuth() {
   const data = window.localStorage.getItem(LOCALUSER);
   if (data) {
     const dataAuth = JSON.parse(data).auth;
-    console.log(dataAuth);
+
     if (dataAuth) {
       return true;
     } else {

@@ -19,7 +19,6 @@ export const ArtworkList: React.FC = () => {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         setArtworks(data.data);
         setLoading(false);
       })
