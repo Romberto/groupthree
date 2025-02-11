@@ -13,9 +13,7 @@ import { userLogOutAction, isAuthAction } from "@/components/pages/AuthPage/Auth
 export const Header = () => {
   const dispatch = useAppDispatch();
   let isAuth = useAppSelector((state) => state.authReducer.auth);
-  useEffect(() => {
-    dispatch(isAuthAction());
-  }, []);
+
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,6 +29,7 @@ export const Header = () => {
   const singOutHandler = () => {
     logOut();
     dispatch(userLogOutAction());
+    
   };
   return (
     <header className={styles.header}>

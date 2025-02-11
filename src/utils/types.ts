@@ -48,15 +48,14 @@ export type SubscriblePropsType = {
   className?: string;
 };
 
-
 export type NavList = {
-  link: 'home' | 'search' | 'favorites',
-  path: PATH
-}
+  link: "home" | "search" | "favorites";
+  path: PATH;
+};
 
 export type AuthPageProps = {
   mode: "singIn" | "singUp";
-}
+};
 
 export type FilterButtonProps = {
   label: string;
@@ -76,15 +75,17 @@ export type SocialMediaItemType = {
 
 export type SocialMediaListProps = {
   data: SocialMediaItemType[];
-  containerClass?: string
-  itemClass?: string
+  containerClass?: string;
+  itemClass?: string;
 };
 
 export type ArtworkCardProps = {
+  id: number;
   title: string;
   artist: string;
   date: string;
   imageId: string | null;
+  isFavorites:boolean;
 };
 
 export type Artwork = {
@@ -96,12 +97,11 @@ export type Artwork = {
 };
 
 export type ProtectedRouteElementType = {
-  element: JSX.Element
-}
+  element: JSX.Element;
+};
 
 export type LocalUserType = {
-  email: string,
-  password: string,
-  auth: boolean
-}
-
+  email: string;
+  password: string;
+  auth: boolean;
+};

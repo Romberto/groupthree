@@ -4,12 +4,21 @@ import styles from "./ArtworkList.module.css";
 import { Artwork } from "@/utils/types";
 import { ArtworkCard } from "./ArtworkCard";
 import { ARTWORKS_ENDPOINT } from "@/utils/constants";
+import { useAppSelector } from "@/app/hooks";
 
 export const ArtworkList: React.FC = () => {
     const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-
+    const favorites = useAppSelector((state)=>state.favoritesReducer.favorites)
+    const isExistInFavoritas = (id:number):boolean =>{
+        if(favorites.includes(id)){
+            return true
+        }else{
+            return false
+        }
+        
+    }
     useEffect(() => {
         fetch(ARTWORKS_ENDPOINT)
             .then((response) => {
@@ -19,7 +28,6 @@ export const ArtworkList: React.FC = () => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
                 setArtworks(data.data);
                 setLoading(false);
             })
@@ -37,10 +45,12 @@ export const ArtworkList: React.FC = () => {
             {artworks.map((art) => (
                 <ArtworkCard
                     key={art.id}
+                    id={art.id}
                     title={art.title}
                     artist={art.artist_display}
                     date={art.date_display}
-                    imageId={art.image_id} />
+                    imageId={art.image_id}
+                    isFavorites={isExistInFavoritas(art.id)} />
             ))}
         </div>
     );

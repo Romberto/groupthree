@@ -16,6 +16,7 @@ import {
   userAuthenticatedAction,
   userRegisterAction,
 } from "@/components/pages/AuthPage/AuthSlice";
+import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
@@ -58,6 +59,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         const isMailEx = EmailAlreadyEx(email);
         if (!isMailEx) {
           dispatch(userRegisterAction({ email: email, password: password }));
+          dispatch(resetFavoriteList())
           navigate(PATH.HOME);
         } else {
           setFormErrors((prevState) => ({

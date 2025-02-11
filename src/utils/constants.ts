@@ -16,6 +16,9 @@ export enum APIPATH{
 }
 
 export const LOCALUSER = 'User'
+export const LOCALFAVORITE = 'favoritas'
+
+export const DEFAULTIMAGE = 'https://kzs.su/image/no_image.jpg'
 
 export const headerNavList: NavList[] = [
   {
