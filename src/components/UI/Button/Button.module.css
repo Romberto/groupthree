@@ -6,7 +6,6 @@
   padding: 6px 22px;
   border-radius: 6px;
   border: 1px solid var(--lilac);
-  box-shadow: var(--lilac) 1px 1px 5px 0px;
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
@@ -15,7 +14,16 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   transition: background-color 0.1s ease;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
 }
+
+.btn_violet:hover,
+.btn_white:hover,
+.btn_round_right:hover {
+  box-shadow: var(--lilac) 2px 2px 5px 0px;
+}
+
 
 .btn_violet {
   background-color: var(--lilac);
