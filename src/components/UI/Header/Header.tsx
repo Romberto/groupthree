@@ -1,18 +1,20 @@
-import { Link, useLocation, useNavigate } from "react-router";
-import styles from "./Header.module.css";
-import arrow from "@/assets/arrow.svg";
-import help from "@/assets/help.svg";
-import { headerNavList, LOCALUSER, PATH } from "@/utils/constants.ts";
-import { logOut } from "@/utils/utils.tsx";   
-import { Button } from "../Button/Button";
-import { Logo } from "../Logo/Logo.tsx";
-import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { userLogOutAction, isAuthAction } from "@/components/pages/AuthPage/AuthSlice";
+import { Link, useLocation, useNavigate } from 'react-router';
+import styles from './Header.module.css';
+import { headerNavList, PATH } from '@/utils/constants.ts';
+import { logOut } from '@/utils/utils.tsx';
+import { Button } from '../Button/Button';
+import { Logo } from '../Logo/Logo.tsx';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import {
+  userLogOutAction,
+  isAuthAction,
+} from '@/components/pages/AuthPage/AuthSlice';
 
 export const Header = () => {
   const dispatch = useAppDispatch();
-  let isAuth = useAppSelector((state) => state.authReducer.auth);
+  const isAuth = useAppSelector(state => state.authReducer.auth);
+
   useEffect(() => {
     dispatch(isAuthAction());
   }, []);

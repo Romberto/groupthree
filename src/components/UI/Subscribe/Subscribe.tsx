@@ -1,12 +1,12 @@
-import { SubscriblePropsType } from "../../../utils/types";
-import { isEmaiValid } from "../../../utils/utils";
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
-import styled from "./Subscribe.module.css";
-import React, { useState } from "react";
+import { SubscriblePropsType } from '../../../utils/types';
+import { isEmaiValid } from '../../../utils/utils';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
+import styled from './Subscribe.module.css';
+import React, { useState } from 'react';
 
 const initiaState = {
-  email: "",
+  email: '',
 };
 
 export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
@@ -16,22 +16,22 @@ export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setError((prev) => ({
+    setError(prev => ({
       ...prev,
-      [name]: "",
+      [name]: '',
     }));
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
+    setFormData(prevState => ({ ...prevState, [name]: value }));
     const isMailValid = isEmaiValid(value);
     if (!value) {
-      setError((prevState) => ({
+      setError(prevState => ({
         ...prevState,
-        [name]: "required field",
+        [name]: 'required field',
       }));
       setIsDisabled(true);
     } else if (!isMailValid) {
-      setError((prevState) => ({
+      setError(prevState => ({
         ...prevState,
-        [name]: "incorrect email",
+        [name]: 'incorrect email',
       }));
       setIsDisabled(true);
     } else {
@@ -41,12 +41,12 @@ export const Subscribe: React.FC<SubscriblePropsType> = ({ className }) => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const isFormValid = Object.values(error).every((error) => error === "");
+    const isFormValid = Object.values(error).every(error => error === '');
     {
-      isFormValid && console.log("отправляем запрос на сервер");
+      isFormValid && console.log('отправляем запрос на сервер');
     }
   };
-  const classSub = `${styled.subscribe} ${className ? className : ""}`;
+  const classSub = `${styled.subscribe} ${className ? className : ''}`;
   return (
     <div className={classSub}>
       <h3>Subscribe to our newsletter</h3>

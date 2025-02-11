@@ -1,7 +1,7 @@
-import { Select } from "../Select/Select";
-import styled from "./FooterDownBlock.module.css";
-import { SocialMediaList } from "../SocialMediaList/SocialMediaList";
-import { LANGUAGES, SOCIALLIST } from "@/utils/constants";
+import { Select } from '../Select/Select';
+import styled from './FooterDownBlock.module.css';
+import { SocialMediaList } from '../SocialMediaList/SocialMediaList';
+import { LANGUAGES, SOCIALLIST } from '@/utils/constants';
 
 export const FooterDownBlock = () => {
   return (
