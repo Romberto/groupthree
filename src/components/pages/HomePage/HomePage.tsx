@@ -1,3 +1,4 @@
+
 import styles from "./HomePage.module.css";
 import { Button } from "@/components/UI/Button/Button";
 import introVideo from "@/assets/intro-video.mp4";
@@ -6,6 +7,7 @@ import { SocialMediaList } from "@/components/UI/SocialMediaList/SocialMediaList
 import { PATH, SOCIALLIST } from "@/utils/constants";
 import { useRef } from "react";
 import { useNavigate } from "react-router";
+
 
 export const HomePage = () => {
 const socialListRef = useRef<HTMLHeadingElement|null>(null)

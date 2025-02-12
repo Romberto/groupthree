@@ -1,3 +1,4 @@
+
 import { Link, useLocation, useNavigate } from "react-router";
 import styles from "./Header.module.css";
 import { headerNavList, PATH } from "@/utils/constants.ts";
@@ -10,6 +11,7 @@ import { userLogOutAction } from "@/components/pages/AuthPage/AuthSlice";
 export const Header = () => {
   const dispatch = useAppDispatch();
   let isAuth = useAppSelector((state) => state.authReducer.auth);
+
 
 
   const location = useLocation();

@@ -1,6 +1,8 @@
+
 import { useAppDispatch } from "@/app/hooks";
 import { LOCALFAVORITE, LOCALUSER } from "./constants";
 import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
+
 
 type User = {
   email: string;
@@ -16,12 +18,14 @@ export function LogIn(email: string, password: string) {
       if (email === parsedUser.email && password === parsedUser.password) {
         window.localStorage.setItem(
           LOCALUSER,
-          JSON.stringify({ ...parsedUser, auth: true })
+          JSON.stringify({ ...parsedUser, auth: true }),
         );
         return user;
       }
     } catch (error) {
+
       console.error("Failed to parse user data:", error);
+
     }
   } else {
     return false;
@@ -59,7 +63,7 @@ export function isEmaiValid(value: string) {
 export function addUser(email: string, password: string) {
   window.localStorage.setItem(
     LOCALUSER,
-    JSON.stringify({ email: email, password: password, auth: true })
+    JSON.stringify({ email: email, password: password, auth: true }),
   );
 
 }
@@ -83,6 +87,7 @@ export function EmailAlreadyEx(email: string) {
 export const makeImagePath = (image_id: string) => {
   return `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`;
 };
+
 
 // взять список id избранного
 export const getFavoritasList = (): [] => {
@@ -113,3 +118,4 @@ export const removeFavoritesOfList = (id: number) => {
     JSON.stringify({ favoritas: newFavorites })
   );
 };
+

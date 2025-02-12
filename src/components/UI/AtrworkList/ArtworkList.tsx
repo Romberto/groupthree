@@ -1,3 +1,4 @@
+
 import React from "react";
 import styles from "./ArtworkList.module.css";
 import { ArtworkCard } from "./ArtworkCard";
@@ -27,4 +28,5 @@ export const ArtworkList: React.FC<{ data: ArtWorkItemProps[] }> = ({data}) => {
             ))}
         </div>
     );
+
 };

@@ -1,3 +1,4 @@
+
 import { ArtworkList } from "@/components/UI/AtrworkList/ArtworkList";
 import { SearchFilterForm } from "@/components/UI/SearchFilterForm/SearchFilterForm";
 import React, { useEffect, useState } from "react";
@@ -31,12 +32,15 @@ export const SearchPage: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+
   return (
     <div className={styles.container}>
       <div className={styles.form}>
         <SearchFilterForm />
       </div>
+
       <ArtworkList data={artworks} />
+
     </div>
   );
 };

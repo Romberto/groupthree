@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { getFavoritesAllById, isLoadToFulfilled } from "./FavoritesPage.slice";
@@ -43,3 +44,4 @@ export const FavoritesPage: React.FC = () => {
     </>
   );
 };
+

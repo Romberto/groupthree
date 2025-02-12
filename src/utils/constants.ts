@@ -1,6 +1,7 @@
-import { NavList } from "./types";
+import { NavList } from './types';
 
 export enum PATH {
+
   HOME = "/",
   SEARCH = "/search",
   FAVORITES = "/favorites",
@@ -35,13 +36,13 @@ export const headerNavList: NavList[] = [
   },
 ];
 
-import facebook from "@/assets/facebook.svg";
-import twitter from "@/assets/twitter.svg";
-import instagram from "@/assets/instagram.svg";
-import linkedin from "@/assets/linkedin.svg";
-import youtube from "@/assets/youtube.svg";
-import { SocialMediaItemType } from "@/utils/types";
-import { v4 as uuidv4 } from "uuid";
+import facebook from '@/assets/facebook.svg';
+import twitter from '@/assets/twitter.svg';
+import instagram from '@/assets/instagram.svg';
+import linkedin from '@/assets/linkedin.svg';
+import youtube from '@/assets/youtube.svg';
+import { SocialMediaItemType } from '@/utils/types';
+import { v4 as uuidv4 } from 'uuid';
 
 const idFaceBook: string = uuidv4();
 const idTwitter: string = uuidv4();
@@ -56,16 +57,17 @@ export const SOCIALLIST: SocialMediaItemType[] = [
   { id: idYouTube, img: youtube },
 ];
 
-export const LANGUAGES = ["English", "Deutsch", "Français", "Русский"];
+export const LANGUAGES = ['English', 'Deutsch', 'Français', 'Русский'];
 
 // Основной API URL
-export const BASE_API_URL = "https://api.artic.edu/api/v1";
+export const BASE_API_URL = 'https://api.artic.edu/api/v1';
 
 // IIIF URL для изображений
-export const BASE_IMAGE_URL = "https://www.artic.edu/iiif/2";
+export const BASE_IMAGE_URL = 'https://www.artic.edu/iiif/2';
 
 // Заглушка для изображений
 export const PLACEHOLDER_IMAGE =
+
   "https://via.placeholder.com/843x843?text=No+Image";
 
 // Эндпоинт для получения списка картин с нужными полями
@@ -76,3 +78,4 @@ export const ARTWORKS_FIELDS =
 export const PENDING = "pending";
 export const FULFILLED = "fulfilled";
 export const REJECTED = "rejected";
+

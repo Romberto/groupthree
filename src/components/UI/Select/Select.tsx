@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import styled from "./Select.module.css";
-import { SelectPropsType } from "@/utils/types";
-
-
+import React, { useState } from 'react';
+import styled from './Select.module.css';
+import { SelectPropsType } from '@/utils/types';
 
 export const Select: React.FC<SelectPropsType> = ({ options }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  let defaultValue:string = "default"
-  try{
-    defaultValue = options[0]
-  }catch(error){
-    console.error(error)
+  let defaultValue: string = 'default';
+  try {
+    defaultValue = options[0];
+  } catch (error) {
+    console.error(error);
   }
   const [selected, setSelected] = useState<string>(defaultValue);
 
@@ -24,7 +22,7 @@ export const Select: React.FC<SelectPropsType> = ({ options }) => {
       setSelected(newValue);
       setIsVisible(!isVisible);
     } else {
-      console.error("textContent is null");
+      console.error('textContent is null');
     }
   };
   return (

@@ -3,8 +3,8 @@ import {
   ChangeEvent,
   HTMLAttributes,
   InputHTMLAttributes,
-} from "react";
-import { PATH } from "./constants";
+} from 'react';
+import { PATH } from './constants';
 
 export type LogoType = {
   className?: string;
@@ -20,7 +20,7 @@ export type FooterItemType = {
 export type FooterListType = FooterItemType[];
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  mode: "btn-violet" | "btn-white" | "btn-round-rigth";
+  mode: 'btn-violet' | 'btn-white' | 'btn-round-rigth';
   className?: string;
 };
 
@@ -36,7 +36,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
-  mode: "singIn" | "singUp";
+  mode: 'singIn' | 'singUp';
   className?: string;
 };
 
@@ -49,12 +49,16 @@ export type SubscriblePropsType = {
 };
 
 export type NavList = {
+
   link: "home" | "search" | "favorites";
+
   path: PATH;
 };
 
 export type AuthPageProps = {
+
   mode: "singIn" | "singUp";
+
 };
 
 export type FilterButtonProps = {
@@ -106,6 +110,7 @@ export type LocalUserType = {
   auth: boolean;
 };
 
+
 export type ArtWorkItemProps = {
   id: number;
   title: string;
@@ -119,3 +124,4 @@ export type FavoritesType = {
   elements: ArtWorkItemProps[];
   isLoad: "pending" | "fulfilled" | "rejected";
 };
+

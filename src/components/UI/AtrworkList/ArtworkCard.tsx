@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import styles from "./ArtworkCard.module.css";
 import styled from "../Tooltip/Tooltip.module.css";
@@ -18,6 +19,7 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   artist,
   date,
   imageId,
+
   isFavorites,
 }) => {
   const isUser = useAppSelector(selectIsUser);
@@ -82,6 +84,7 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
         <p className={styles.artist}>{artist}</p>
         <p className={styles.date}>{date}</p>
       </div>
+
     </div>
   );
 };
