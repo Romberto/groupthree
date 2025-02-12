@@ -1,17 +1,17 @@
-
-import React, { useState } from "react";
-import styles from "./ArtworkCard.module.css";
-import styled from "../Tooltip/Tooltip.module.css";
-import { ArtworkCardProps } from "@/utils/types";
-import { BASE_IMAGE_URL, DEFAULTIMAGE } from "@/utils/constants";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { Tooltip } from "../Tooltip/Tooltip";
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import React, { useState } from 'react';
+import styles from './ArtworkCard.module.css';
+import detailArrow from '@/assets/details-arrow.svg';
+import styled from '../Tooltip/Tooltip.module.css';
+import { ArtworkCardProps } from '@/utils/types';
+import { BASE_IMAGE_URL, DEFAULTIMAGE } from '@/utils/constants';
+import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
+import { Tooltip } from '../Tooltip/Tooltip';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import {
   addToFavorites,
   removeToFavorites,
-} from "@/components/pages/FavoritesPage/FavoritesPage.slice";
-import { selectIsUser } from "@/utils/selectors";
+} from '@/components/pages/FavoritesPage/FavoritesPage.slice';
+import { selectIsUser } from '@/utils/selectors';
 
 export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   id,
@@ -19,7 +19,6 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   artist,
   date,
   imageId,
-
   isFavorites,
 }) => {
   const isUser = useAppSelector(selectIsUser);
@@ -55,7 +54,8 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   return (
     <div className={styles.card}>
       <img src={imageUrl} alt={title} className={styles.image} />
-      <div className={styles.block}>
+      <div className={styles.header}>
+        <h3 className={styles.title}>{title}</h3>
         {isUser ? (
           <>
             {!isExistToFavotitas ? (
@@ -80,11 +80,13 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
             <Tooltip className={`${isShowTooltip && styled.show}`} />
           </>
         )}
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.artist}>{artist}</p>
-        <p className={styles.date}>{date}</p>
       </div>
-
+      <p className={styles.artist}>Artist: {artist}</p>
+      <p className={styles.date}>Date: {date}</p>
+      <a className={styles.link} href="#">
+        See details
+        <img src={detailArrow} alt="details" />
+      </a>
     </div>
   );
 };
