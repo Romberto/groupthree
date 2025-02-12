@@ -3,7 +3,6 @@ import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import styled from "./RegisterForm.module.css";
 import {
-  addUser,
   EmailAlreadyEx,
   isEmaiValid,
   LogIn,
@@ -60,6 +59,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         if (!isMailEx) {
           dispatch(userRegisterAction({ email: email, password: password }));
           dispatch(resetFavoriteList())
+          
           navigate(PATH.HOME);
         } else {
           setFormErrors((prevState) => ({

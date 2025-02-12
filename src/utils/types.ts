@@ -105,3 +105,17 @@ export type LocalUserType = {
   password: string;
   auth: boolean;
 };
+
+export type ArtWorkItemProps = {
+  id: number;
+  title: string;
+  date_display: string;
+  artist_display: string;
+  image_id: string;
+};
+
+export type FavoritesType = {
+  favorites: number[];
+  elements: ArtWorkItemProps[];
+  isLoad: "pending" | "fulfilled" | "rejected";
+};

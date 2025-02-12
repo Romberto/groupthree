@@ -1,13 +1,32 @@
-import React from 'react';
-import styled from './FavoritesPage.module.css'
-import { useAppSelector } from '@/app/hooks';
+import React, { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { getFavoritesAllById, isLoadToFulfilled } from "./FavoritesPage.slice";
+import { ArtworkList } from "@/components/UI/AtrworkList/ArtworkList";
+import { FavoritesNotRecords } from "./FavoritesNotRecords";
 
 export const FavoritesPage: React.FC = () => {
-    const favorites = useAppSelector((state)=>state.favoritesReducer.favorites)
+  const ids = useAppSelector((state) => state.favoritesReducer.favorites);
+  const favorites = useAppSelector((state) => state.favoritesReducer.elements);
+  const isLoading = useAppSelector((state) => state.favoritesReducer.isLoad);
+  const [isNotData, setIsNotdata] = useState(false);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (ids.length > 0) {
+      dispatch(getFavoritesAllById(ids));
+    } else {
+      dispatch(isLoadToFulfilled());
+      setIsNotdata(true);
+    }
+  }, [ids, dispatch]);
   return (
-    <div>
-        {favorites.length !== 0 ? <h1>Hello</h1> : <h3>There are no artworks in your favorites section.</h3>
-        }
-    </div>
+    <>
+      {isLoading === "pending" ? (
+        <p>Loading...</p>
+      ) : isLoading === "rejected" ? (
+        <p>Ups...error</p>
+      ) : (
+        <ul>{!isNotData ? <ArtworkList data={favorites} /> : <FavoritesNotRecords/>}</ul>
+      )}
+    </>
   );
 };

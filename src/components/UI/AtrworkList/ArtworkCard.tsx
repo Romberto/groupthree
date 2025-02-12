@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./ArtworkCard.module.css";
 import styled from "../Tooltip/Tooltip.module.css";
 import { ArtworkCardProps } from "@/utils/types";
-import { BASE_IMAGE_URL, DEFAULTIMAGE, PLACEHOLDER_IMAGE } from "@/utils/constants";
+import { BASE_IMAGE_URL, DEFAULTIMAGE} from "@/utils/constants";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
