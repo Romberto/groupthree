@@ -1,39 +1,86 @@
 .card {
-
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 274px;
-    
+  width: 306px;
+  height: 350px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 6px;
+  box-shadow:
+    0 0 1px rgba(23, 26, 31, 0.14),
+    0 0 2px rgba(23, 26, 31, 0.24);
 }
 
-.block{
-    position: relative; 
-    padding-top: 10px;
+.header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.favorite_icon{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
+.favorite_icon {
+  cursor: pointer;
 }
 
 .image {
-  width: 274px;
+  width: 100%;
   height: 162px;
-  object-fit: cover; /* Обрезаем с сохранением пропорций */
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .title {
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  font-weight: 700;
   margin: 10px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .artist,
 .date {
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  color: #555;
+  line-height: 22px;
+  color: #9095A0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.link {
+  align-self: flex-start;
+  position: relative;
+  text-decoration: none;
+  color: var(--lilac);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  margin: 14px 0 8px 0;
+  transition: 0.3s linear;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.link::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: var(--dark-lilac);
+  bottom: -2px;
+  left: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.link:hover {
+  color: var(--dark-lilac);
+}
+
+.link:hover::after {
+  width: 100%;
 }
