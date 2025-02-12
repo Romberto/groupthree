@@ -1,23 +1,18 @@
-import { Link, useLocation, useNavigate } from 'react-router';
-import styles from './Header.module.css';
-import { headerNavList, PATH } from '@/utils/constants.ts';
-import { logOut } from '@/utils/utils.tsx';
-import { Button } from '../Button/Button';
-import { Logo } from '../Logo/Logo.tsx';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import {
-  userLogOutAction,
-  isAuthAction,
-} from '@/components/pages/AuthPage/AuthSlice';
+
+import { Link, useLocation, useNavigate } from "react-router";
+import styles from "./Header.module.css";
+import { headerNavList, PATH } from "@/utils/constants.ts";
+import { logOut } from "@/utils/utils.tsx";   
+import { Button } from "../Button/Button";
+import { Logo } from "../Logo/Logo.tsx";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { userLogOutAction } from "@/components/pages/AuthPage/AuthSlice";
 
 export const Header = () => {
   const dispatch = useAppDispatch();
-  const isAuth = useAppSelector(state => state.authReducer.auth);
+  let isAuth = useAppSelector((state) => state.authReducer.auth);
 
-  useEffect(() => {
-    dispatch(isAuthAction());
-  }, []);
+
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,6 +28,7 @@ export const Header = () => {
   const singOutHandler = () => {
     logOut();
     dispatch(userLogOutAction());
+    
   };
   return (
     <header className={styles.header}>

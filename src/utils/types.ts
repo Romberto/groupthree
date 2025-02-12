@@ -49,12 +49,16 @@ export type SubscriblePropsType = {
 };
 
 export type NavList = {
-  link: 'home' | 'search' | 'favorites';
+
+  link: "home" | "search" | "favorites";
+
   path: PATH;
 };
 
 export type AuthPageProps = {
-  mode: 'singIn' | 'singUp';
+
+  mode: "singIn" | "singUp";
+
 };
 
 export type FilterButtonProps = {
@@ -80,10 +84,12 @@ export type SocialMediaListProps = {
 };
 
 export type ArtworkCardProps = {
+  id: number;
   title: string;
   artist: string;
   date: string;
   imageId: string | null;
+  isFavorites:boolean;
 };
 
 export type Artwork = {
@@ -103,3 +109,19 @@ export type LocalUserType = {
   password: string;
   auth: boolean;
 };
+
+
+export type ArtWorkItemProps = {
+  id: number;
+  title: string;
+  date_display: string;
+  artist_display: string;
+  image_id: string;
+};
+
+export type FavoritesType = {
+  favorites: number[];
+  elements: ArtWorkItemProps[];
+  isLoad: "pending" | "fulfilled" | "rejected";
+};
+

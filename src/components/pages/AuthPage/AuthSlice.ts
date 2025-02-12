@@ -1,8 +1,12 @@
-import { addUser, isUserAuth, LogIn, logOut } from '@/utils/utils';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { LOCALFAVORITE } from "@/utils/constants";
+import { addUser, isUserAuth, LogIn, logOut } from "@/utils/utils";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 
 type UserAuth = {
   auth: boolean;
+  username: string | null;
 };
 
 type addUserType = {
@@ -11,7 +15,8 @@ type addUserType = {
 };
 
 const initialState: UserAuth = {
-  auth: false,
+  auth: isUserAuth(),
+  username: null
 };
 
 const AuthSlice = createSlice({
@@ -20,10 +25,12 @@ const AuthSlice = createSlice({
   reducers: {
     userRegisterAction: (state, action: PayloadAction<addUserType>) => {
       addUser(action.payload.email, action.payload.password);
+      window.localStorage.setItem(LOCALFAVORITE, JSON.stringify({'favoritas': []}))
       state.auth = true;
     },
     userAuthenticatedAction: (state, action: PayloadAction<addUserType>) => {
       const login = LogIn(action.payload.email, action.payload.password);
+
       if (login) {
         state.auth = true;
       } else {

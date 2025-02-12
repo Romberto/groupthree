@@ -1,16 +1,23 @@
-import React, { FormEvent, useState } from 'react';
-import { Input } from '../Input/Input';
-import { Button } from '../Button/Button';
-import styled from './RegisterForm.module.css';
-import { addUser, EmailAlreadyEx, isEmaiValid, LogIn } from '@/utils/utils';
-import { RegisterFormProps } from '@/utils/types';
-import { useNavigate } from 'react-router';
-import { PATH } from '@/utils/constants';
-import { useAppDispatch } from '@/app/hooks';
+
+import React, { FormEvent, useState } from "react";
+import { Input } from "../Input/Input";
+import { Button } from "../Button/Button";
+import styled from "./RegisterForm.module.css";
+import {
+  EmailAlreadyEx,
+  isEmaiValid,
+  LogIn,
+} from "@/utils/utils";
+import { RegisterFormProps } from "@/utils/types";
+import { useNavigate } from "react-router";
+import { PATH } from "@/utils/constants";
+import { useAppDispatch } from "@/app/hooks";
 import {
   userAuthenticatedAction,
   userRegisterAction,
-} from '@/components/pages/AuthPage/AuthSlice';
+} from "@/components/pages/AuthPage/AuthSlice";
+import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
+
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
@@ -51,6 +58,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         const isMailEx = EmailAlreadyEx(email);
         if (!isMailEx) {
           dispatch(userRegisterAction({ email: email, password: password }));
+          dispatch(resetFavoriteList())
+          
           navigate(PATH.HOME);
         } else {
           setFormErrors(prevState => ({

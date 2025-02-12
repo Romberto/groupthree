@@ -1,8 +1,12 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import authReducer from '@/components/pages/AuthPage/AuthSlice';
+
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import authReducer from '@/components/pages/AuthPage/AuthSlice'
+import favoritesReducer from '@/components/pages/FavoritesPage/FavoritesPage.slice'
 
 const reducers = combineReducers({
-  authReducer,
+    authReducer,
+    favoritesReducer
+
 });
 
 export const store = configureStore({
