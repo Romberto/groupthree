@@ -1,4 +1,4 @@
-import { BASE_API_URL } from "@/utils/constants";
+import { fetchFavoritesById } from "@/utils/api";
 import { ArtWorkItemProps, FavoritesType } from "@/utils/types";
 import {
   addFavotitesToList,
@@ -19,21 +19,7 @@ const initialState: FavoritesType = {
 export const getFavoritesAllById = createAsyncThunk(
   "favorites/getFavoritesall",
   async (ids: number[]) => {
-    try {
-      const idsStr = ids.join(",");
-      console.log();
-      const response = await fetch(
-        `${BASE_API_URL}/artworks?ids=${idsStr}&fields=id,title,artist_display,date_display,image_id`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        return data.data;
-      } else {
-        throw new Error("Network error");
-      }
-    } catch (error) {
-      return Promise.reject(error);
-    }
+     return await fetchFavoritesById(ids)
   }
 );
 

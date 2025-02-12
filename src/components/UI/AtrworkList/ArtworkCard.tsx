@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./ArtworkCard.module.css";
 import styled from "../Tooltip/Tooltip.module.css";
 import { ArtworkCardProps } from "@/utils/types";
-import { BASE_IMAGE_URL, DEFAULTIMAGE} from "@/utils/constants";
+import { BASE_IMAGE_URL, DEFAULTIMAGE } from "@/utils/constants";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
@@ -10,6 +10,7 @@ import {
   addToFavorites,
   removeToFavorites,
 } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
+import { selectIsUser } from "@/utils/selectors";
 
 export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   id,
@@ -17,16 +18,14 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   artist,
   date,
   imageId,
-  isFavorites
+  isFavorites,
 }) => {
-
+  const isUser = useAppSelector(selectIsUser);
   const imageUrl = imageId
     ? `${BASE_IMAGE_URL}/${imageId}/full/400,/0/default.jpg`
     : DEFAULTIMAGE;
-  
   const [isShowTooltip, setIsShowTooltip] = useState(false);
   const [isExistToFavotitas, setIsExistToFavotitas] = useState(isFavorites);
-  const isUser = useAppSelector((state) => state.authReducer.auth);
   const dispatch = useAppDispatch();
   const handleMouseEnter: React.MouseEventHandler<SVGElement> = () => {
     if (!isUser) {
@@ -45,7 +44,7 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
       setIsExistToFavotitas(true);
     }
   };
-  const handleClickFavoritas = (id: number) => {
+  const handleClickFavoritas = () => {
     if (isUser) {
       toggleFavoritas(id);
     }
@@ -60,15 +59,13 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
             {!isExistToFavotitas ? (
               <FaRegBookmark
                 className={styles.favorite_icon}
-                onClick={() => handleClickFavoritas(id)}
+                onClick={handleClickFavoritas}
               />
             ) : (
-              <>
-                <FaBookmark
-                  className={styles.favorite_icon}
-                  onClick={() => handleClickFavoritas(id)}
-                />
-              </>
+              <FaBookmark
+                className={styles.favorite_icon}
+                onClick={handleClickFavoritas}
+              />
             )}
           </>
         ) : (
