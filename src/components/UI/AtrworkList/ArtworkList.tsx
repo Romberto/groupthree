@@ -4,6 +4,7 @@ import styles from "./ArtworkList.module.css";
 import { Artwork } from "@/utils/types";
 import { ArtworkCard } from "./ArtworkCard";
 import { ARTWORKS_ENDPOINT } from "@/utils/constants";
+import { filterArtworks } from "@/utils/filterArtworks";
 
 export const ArtworkList: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
     const [artworks, setArtworks] = useState<Artwork[]>([]);
@@ -29,10 +30,7 @@ export const ArtworkList: React.FC<{ searchQuery: string }> = ({ searchQuery }) 
             });
     }, []);
 
-    const filteredArtworks = artworks.filter(art =>
-        art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (art.artist_display && art.artist_display.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
+    const filteredArtworks = filterArtworks(artworks, searchQuery);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;

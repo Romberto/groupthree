@@ -94,7 +94,7 @@ export type Artwork = {
   artist_display: string;
   date_display: string;
   image_id: string | null;
-  searchQuery: string;
+  searchQuery?: string;
 };
 
 export type ProtectedRouteElementType = {
