@@ -1,4 +1,8 @@
-import { LOCALUSER } from "./constants";
+
+import { useAppDispatch } from "@/app/hooks";
+import { LOCALFAVORITE, LOCALUSER } from "./constants";
+import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
+
 
 type User = {
   email: string;
@@ -11,18 +15,17 @@ export function LogIn(email: string, password: string) {
   if (user) {
     try {
       const parsedUser: User = JSON.parse(user);
-      if (
-        email === parsedUser.email &&
-        password === parsedUser.password
-      ) {
+      if (email === parsedUser.email && password === parsedUser.password) {
         window.localStorage.setItem(
           LOCALUSER,
-          JSON.stringify({ ...parsedUser, auth: true })
+          JSON.stringify({ ...parsedUser, auth: true }),
         );
         return user;
       }
     } catch (error) {
-        console.error("Failed to parse user data:", error)
+
+      console.error("Failed to parse user data:", error);
+
     }
   } else {
     return false;
@@ -32,24 +35,23 @@ export function LogIn(email: string, password: string) {
 export function logOut() {
   const user = window.localStorage.getItem(LOCALUSER);
   if (user) {
-    let currentUser = JSON.parse(user)
+    let currentUser = JSON.parse(user);
     currentUser.auth = false;
-    window.localStorage.setItem(LOCALUSER, JSON.stringify({...currentUser}))
+    window.localStorage.setItem(LOCALUSER, JSON.stringify({ ...currentUser }));
   }
 }
 
-export function isUserAuth(){
-  const data = window.localStorage.getItem(LOCALUSER)
-  if(data){
-    const dataAuth = JSON.parse(data).auth
-    console.log(dataAuth)
-    if(dataAuth){
-      return true
-    }else{
-      return false
+export function isUserAuth() {
+  const data = window.localStorage.getItem(LOCALUSER);
+  if (data) {
+    const dataAuth = JSON.parse(data).auth;
+    if (dataAuth) {
+      return true;
+    } else {
+      return false;
     }
-  }else{
-    return false
+  } else {
+    return false;
   }
 }
 
@@ -61,8 +63,9 @@ export function isEmaiValid(value: string) {
 export function addUser(email: string, password: string) {
   window.localStorage.setItem(
     LOCALUSER,
-    JSON.stringify({ email: email, password: password, auth: true })
+    JSON.stringify({ email: email, password: password, auth: true }),
   );
+
 }
 // проверка есть ли пользователь с таким email
 export function EmailAlreadyEx(email: string) {
@@ -80,7 +83,39 @@ export function EmailAlreadyEx(email: string) {
     }
   }
 }
-// формирует путь для изображения 
-export const makeImagePath = (image_id:string) => {
-  return `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`
-}
+// формирует путь для изображения
+export const makeImagePath = (image_id: string) => {
+  return `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`;
+};
+
+
+// взять список id избранного
+export const getFavoritasList = (): [] => {
+  const localFavorites = window.localStorage.getItem(LOCALFAVORITE);
+  if (localFavorites) {
+    return JSON.parse(localFavorites).favoritas;
+  } else {
+    return [];
+  }
+};
+
+// доюавить id в список избранного
+export const addFavotitesToList = (id: number) => {
+  const localFavorites = getFavoritasList();
+  const newFavorites = [...localFavorites, id];
+  window.localStorage.setItem(
+    LOCALFAVORITE,
+    JSON.stringify({ favoritas: newFavorites })
+  );
+};
+
+// удалить из избранного 
+export const removeFavoritesOfList = (id: number) => {
+  const localFavorites = getFavoritasList();
+  const newFavorites = localFavorites.filter((item) => item !== id);
+  window.localStorage.setItem(
+    LOCALFAVORITE,
+    JSON.stringify({ favoritas: newFavorites })
+  );
+};
+

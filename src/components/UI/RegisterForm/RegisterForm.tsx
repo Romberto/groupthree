@@ -1,9 +1,9 @@
+
 import React, { FormEvent, useState } from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import styled from "./RegisterForm.module.css";
 import {
-  addUser,
   EmailAlreadyEx,
   isEmaiValid,
   LogIn,
@@ -16,6 +16,8 @@ import {
   userAuthenticatedAction,
   userRegisterAction,
 } from "@/components/pages/AuthPage/AuthSlice";
+import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
+
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
@@ -25,32 +27,30 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [formErrors, setFormErrors] = useState({
-    email: "",
-    password: "",
-    form: "",
+    email: '',
+    password: '',
+    form: '',
   });
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const isFormValid = Object.values(formErrors).every(
-      (error) => error === ""
-    );
+    const isFormValid = Object.values(formErrors).every(error => error === '');
     if (isFormValid) {
       const [email, password] = Object.values(formData);
-      if (mode === "singIn") {
+      if (mode === 'singIn') {
         const isAuth = LogIn(email, password);
         if (!isAuth) {
-          setFormErrors((prevState) => ({
+          setFormErrors(prevState => ({
             ...prevState,
-            form: "Invalid email or password",
+            form: 'Invalid email or password',
           }));
         } else {
           dispatch(
-            userAuthenticatedAction({ email: email, password: password })
+            userAuthenticatedAction({ email: email, password: password }),
           );
           navigate(PATH.HOME);
         }
@@ -58,11 +58,13 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         const isMailEx = EmailAlreadyEx(email);
         if (!isMailEx) {
           dispatch(userRegisterAction({ email: email, password: password }));
+          dispatch(resetFavoriteList())
+          
           navigate(PATH.HOME);
         } else {
-          setFormErrors((prevState) => ({
+          setFormErrors(prevState => ({
             ...prevState,
-            form: "Email already registered",
+            form: 'Email already registered',
           }));
         }
       }
@@ -73,43 +75,43 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
+    setFormData(prevState => ({
       ...prevState,
       [name]: value,
     }));
-    setFormErrors((prevState) => ({
+    setFormErrors(prevState => ({
       ...prevState,
-      email: "",
-      password: "",
-      form: "",
+      email: '',
+      password: '',
+      form: '',
     }));
 
     if (!value) {
-      setFormErrors((prevState) => ({
+      setFormErrors(prevState => ({
         ...prevState,
-        [name]: "required field",
+        [name]: 'required field',
       }));
-    } else if (name === "email" && value.length > 0 && !isEmaiValid(value)) {
-      setFormErrors((prevState) => ({
+    } else if (name === 'email' && value.length > 0 && !isEmaiValid(value)) {
+      setFormErrors(prevState => ({
         ...prevState,
-        [name]: "incorrect email",
+        [name]: 'incorrect email',
       }));
-    } else if (name === "password" && value.length <= 3) {
-      setFormErrors((prevState) => ({
+    } else if (name === 'password' && value.length <= 3) {
+      setFormErrors(prevState => ({
         ...prevState,
-        [name]: "must be at least 3 characters long",
+        [name]: 'must be at least 3 characters long',
       }));
     } else {
-      setFormErrors((prevState) => ({
+      setFormErrors(prevState => ({
         ...prevState,
-        [name]: "",
+        [name]: '',
       }));
     }
   };
-  const formClass = `${styled.form} ${className ? className : ""}`;
+  const formClass = `${styled.form} ${className ? className : ''}`;
   return (
     <form className={formClass} onSubmit={onSubmit} {...rest}>
-      <h3>{mode === "singIn" ? "Sing In" : "Sing Up"}</h3>
+      <h3>{mode === 'singIn' ? 'Sing In' : 'Sing Up'}</h3>
       <label className={styled.label}>
         <Input
           type="mail"
@@ -139,7 +141,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
       </label>
 
       <Button mode="btn-violet" type="submit">
-        Sign {`${mode === "singIn" ? "In" : "Up"}`} to Galary
+        Sign {`${mode === 'singIn' ? 'In' : 'Up'}`} to Galary
       </Button>
       {formErrors.form && (
         <span className={styled.form_error}>{formErrors.form}</span>

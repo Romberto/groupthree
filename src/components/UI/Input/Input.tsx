@@ -1,5 +1,5 @@
-import styled from "./Input.module.css";
-import { InputProps } from "@/utils/types";
+import styled from './Input.module.css';
+import { InputProps } from '@/utils/types';
 
 export const Input: React.FC<InputProps> = ({
   className,
@@ -7,7 +7,7 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   ...rest
 }) => {
-  const InputClass = `${styled.input} ${className ? className : ""}`;
+  const InputClass = `${styled.input} ${className ? className : ''}`;
   return (
     <input
       {...rest}

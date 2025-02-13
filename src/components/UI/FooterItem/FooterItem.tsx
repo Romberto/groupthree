@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "./FooterItem.module.css";
-import { FooterItemProps } from "@/utils/types";
+import React from 'react';
+import styled from './FooterItem.module.css';
+import { FooterItemProps } from '@/utils/types';
 
 export const FooterItem: React.FC<FooterItemProps> = ({ className, item }) => {
-  let title: string = "";
+  let title: string = '';
   let links: string[] = [];
   try {
     title = Object.keys(item)[0];
@@ -12,9 +12,7 @@ export const FooterItem: React.FC<FooterItemProps> = ({ className, item }) => {
     console.log(error);
   }
 
-  const FooterItemClass = `${styled.footer__item} ${
-    className ? className : ""
-  }`;
+  const FooterItemClass = `${styled.footer__item} ${className ? className : ''}`;
   return (
     <div className={FooterItemClass}>
       <h3 className={styled.footer__item_title}>{title}</h3>

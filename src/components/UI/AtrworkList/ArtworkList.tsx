@@ -1,46 +1,30 @@
+
 import React from "react";
-import { useEffect, useState } from "react";
 import styles from "./ArtworkList.module.css";
-import { Artwork } from "@/utils/types";
 import { ArtworkCard } from "./ArtworkCard";
-import { ARTWORKS_ENDPOINT } from "@/utils/constants";
+import { useAppSelector } from "@/app/hooks";
+import { ArtWorkItemProps } from "@/utils/types";
+import { selectFavoritesIds } from "@/utils/selectors";
 import { filterArtworks } from "@/utils/filterArtworks";
 
-export const ArtworkList: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
-    const [artworks, setArtworks] = useState<Artwork[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        fetch(ARTWORKS_ENDPOINT)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch artworks");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                setArtworks(data.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                setError(error.message);
-                setLoading(false);
-            });
-    }, []);
-
-    const filteredArtworks = filterArtworks(artworks, searchQuery);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-
+export const ArtworkList: React.FC<{ data: ArtWorkItemProps[], searchQuery: string }> = ({ data, searchQuery }) => {
+    const filteredArtworks = filterArtworks(data, searchQuery);
+    const favorites = useAppSelector(selectFavoritesIds)
+    const isExistInFavoritas = (id:number):boolean =>{
+        if(favorites.includes(id)){
+            return true
+        }
+        return false    
+    }
     return (
         <div className={styles.grid}>
+
             {filteredArtworks.length > 0 ? (
                 filteredArtworks.map((art) => (
                     <ArtworkCard
                         key={art.id}
+                        id={art.id}
                         title={art.title}
                         artist={art.artist_display}
                         date={art.date_display}

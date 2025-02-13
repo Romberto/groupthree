@@ -1,8 +1,9 @@
-import { FilterButton } from "./FilterButton";
-import { FILTER_TYPES } from "./filterTypes";
-import { SearchBar } from "./SearchBar";
-import styles from "./SearchFilterForm.module.css";
-import React, { useState } from "react";
+import { FilterButton } from './FilterButton';
+import { FILTER_TYPES } from './filterTypes';
+import { SearchBar } from './SearchBar';
+import styles from './SearchFilterForm.module.css';
+import React, { useState } from 'react';
+
 
 export const SearchFilterForm: React.FC<{ onSearch: (query: string) => void}> = ({ onSearch }) => {
     const [openFilter, setOpenFilter] = useState<string | null>(null);
@@ -52,5 +53,3 @@ export const SearchFilterForm: React.FC<{ onSearch: (query: string) => void}> = 
         </div>
     );
 };
-
-
