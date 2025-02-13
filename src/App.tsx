@@ -8,6 +8,7 @@ import { Header } from './components/UI/Header/Header.tsx';
 import { AuthPage } from './components/pages/AuthPage/AuthPage.tsx';
 import { Route, Routes } from 'react-router';
 import { Footer } from './components/UI/Footer/Footer.tsx';
+import { ArtworkPage } from './components/pages/ArtworkPage/ArtworkPage.tsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={PATH.HOME} element={<HomePage />} />
           <Route path={PATH.SEARCH} element={<SearchPage />} />
+          <Route path={`${PATH.SEARCH}/:id`} element={<ArtworkPage />} />
           <Route
             path={PATH.FAVORITES}
             element={<ProtectedRouteElement element={<FavoritesPage />} />}

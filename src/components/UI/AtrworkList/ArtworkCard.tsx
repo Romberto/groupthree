@@ -3,7 +3,7 @@ import styles from './ArtworkCard.module.css';
 import detailArrow from '@/assets/details-arrow.svg';
 import styled from '../Tooltip/Tooltip.module.css';
 import { ArtworkCardProps } from '@/utils/types';
-import { BASE_IMAGE_URL, DEFAULTIMAGE } from '@/utils/constants';
+import { BASE_IMAGE_URL, DEFAULTIMAGE, PATH } from '@/utils/constants';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -12,6 +12,7 @@ import {
   removeToFavorites,
 } from '@/components/pages/FavoritesPage/FavoritesPage.slice';
 import { selectIsUser } from '@/utils/selectors';
+import { Link } from 'react-router';
 
 export const ArtworkCard: React.FC<ArtworkCardProps> = ({
   id,
@@ -83,10 +84,10 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({
       </div>
       <p className={styles.artist}>Artist: {artist}</p>
       <p className={styles.date}>Date: {date}</p>
-      <a className={styles.link} href="#">
+      <Link className={styles.link} to={`${PATH.SEARCH}/${id}`}>
         See details
         <img src={detailArrow} alt="details" />
-      </a>
+      </Link>
     </div>
   );
 };

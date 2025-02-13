@@ -1,10 +1,9 @@
-
-import { ArtworkList } from "@/components/UI/AtrworkList/ArtworkList";
-import { SearchFilterForm } from "@/components/UI/SearchFilterForm/SearchFilterForm";
-import React, { useEffect, useState } from "react";
-import styles from "./SearchPage.module.css";
-import { ARTWORKS_ENDPOINT } from "@/utils/constants";
-import { ArtWorkItemProps } from "@/utils/types";
+import { ArtworkList } from '@/components/UI/AtrworkList/ArtworkList';
+import { SearchFilterForm } from '@/components/UI/SearchFilterForm/SearchFilterForm';
+import React, { useEffect, useState } from 'react';
+import styles from './SearchPage.module.css';
+import { ARTWORKS_ENDPOINT } from '@/utils/constants';
+import { ArtWorkItemProps } from '@/utils/types';
 
 export const SearchPage: React.FC = () => {
   const [artworks, setArtworks] = useState<ArtWorkItemProps[]>([]);
@@ -13,17 +12,17 @@ export const SearchPage: React.FC = () => {
 
   useEffect(() => {
     fetch(ARTWORKS_ENDPOINT)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
-          throw new Error("Failed to fetch artworks");
+          throw new Error('Failed to fetch artworks');
         }
         return response.json();
       })
-      .then((data) => {
+      .then(data => {
         setArtworks(data.data);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(error => {
         setError(error.message);
         setLoading(false);
       });
@@ -32,7 +31,6 @@ export const SearchPage: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -40,7 +38,6 @@ export const SearchPage: React.FC = () => {
       </div>
 
       <ArtworkList data={artworks} />
-
     </div>
   );
 };
