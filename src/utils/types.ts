@@ -70,6 +70,7 @@ export type FilterButtonProps = {
 
 export type SearchBarProps = {
   placeholder: string;
+  onSearch: (query: string) => void
 };
 
 export type SocialMediaItemType = {
@@ -98,6 +99,7 @@ export type Artwork = {
   artist_display: string;
   date_display: string;
   image_id: string | null;
+  searchQuery?: string;
 };
 
 export type ProtectedRouteElementType = {
