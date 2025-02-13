@@ -14,6 +14,7 @@ export const ArtworkPage = () => {
     : DEFAULTIMAGE;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchApiGetById(`${id}`).then(data => {
       setArtwork(data.data);
     });
