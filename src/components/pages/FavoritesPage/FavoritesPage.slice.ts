@@ -1,5 +1,5 @@
 import { fetchFavoritesById } from "@/utils/api";
-import { ArtWorkItemProps, FavoritesType } from "@/utils/types";
+import { Artwork, FavoritesType } from "@/utils/types";
 import {
   addFavotitesToList,
   getFavoritasList,
@@ -49,7 +49,7 @@ const FavoritesAction = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       getFavoritesAllById.fulfilled,
-      (state, action: PayloadAction<ArtWorkItemProps[]>) => {
+      (state, action: PayloadAction<Artwork[]>) => {
         state.elements = action.payload;
         state.isLoad = "fulfilled";
       }
