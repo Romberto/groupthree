@@ -121,7 +121,7 @@ export type FavoritesType = {
   isLoad: 'pending' | 'fulfilled' | 'rejected';
 };
 
-export type fetchArtworkDataType = {
+export type ArtworkFullType = {
   id: number;
   title: string;
   artist_display: string;
