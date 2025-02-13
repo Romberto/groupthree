@@ -5,11 +5,16 @@ import React, { useEffect, useState } from "react";
 import styles from "./SearchPage.module.css";
 import { ARTWORKS_ENDPOINT } from "@/utils/constants";
 import { ArtWorkItemProps } from "@/utils/types";
+import { PaginationCard } from "@/components/UI/PaginationCard/PaginationCard";
 
 export const SearchPage: React.FC = () => {
   const [artworks, setArtworks] = useState<ArtWorkItemProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const featchPage = (page: number) =>{
+    console.log('get page number ', page)
+  }
 
   useEffect(() => {
     fetch(ARTWORKS_ENDPOINT)
@@ -40,6 +45,7 @@ export const SearchPage: React.FC = () => {
       </div>
 
       <ArtworkList data={artworks} />
+      <PaginationCard total={15} onChange={featchPage}/>
 
     </div>
   );
