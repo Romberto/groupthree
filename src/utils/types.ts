@@ -49,16 +49,13 @@ export type SubscriblePropsType = {
 };
 
 export type NavList = {
-
-  link: "home" | "search" | "favorites";
+  link: 'home' | 'search' | 'favorites';
 
   path: PATH;
 };
 
 export type AuthPageProps = {
-
-  mode: "singIn" | "singUp";
-
+  mode: 'singIn' | 'singUp';
 };
 
 export type FilterButtonProps = {
@@ -90,7 +87,7 @@ export type ArtworkCardProps = {
   artist: string;
   date: string;
   imageId: string | null;
-  isFavorites:boolean;
+  isFavorites: boolean;
 };
 
 export type Artwork = {
@@ -112,6 +109,10 @@ export type LocalUserType = {
   auth: boolean;
 };
 
+export type FavoritesType = {
+  favorites: number[];
+  elements: ArtWorkItemProps[];
+  isLoad: 'pending' | 'fulfilled' | 'rejected';
 
 // export type ArtWorkItemProps = {
 //   id: number;
@@ -127,3 +128,29 @@ export type FavoritesType = {
   isLoad: "pending" | "fulfilled" | "rejected";
 };
 
+export type ArtworkFullType = {
+  id: number;
+  title: string;
+  artist_display: string;
+  date_display: string;
+  place_of_origin: string;
+  artwork_type_title: string;
+  medium_display: string;
+  dimensions: string;
+  main_reference_number: string;
+  inscriptions: string | null;
+  short_description: string | null;
+  description: string | null;
+  image_id: string;
+  department_title: string;
+  style_title: string;
+  subject_titles: string[];
+  publication_history?: string | null;
+  catalogue_display?: string | null;
+  is_public_domain: boolean;
+  is_on_view: boolean;
+};
+
+export type SpecificationProps = {
+  data: ArtworkFullType | null;
+};

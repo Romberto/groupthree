@@ -1,8 +1,6 @@
-
-import { useAppDispatch } from "@/app/hooks";
-import { LOCALFAVORITE, LOCALUSER } from "./constants";
-import { resetFavoriteList } from "@/components/pages/FavoritesPage/FavoritesPage.slice";
-
+import { useAppDispatch } from '@/app/hooks';
+import { LOCALFAVORITE, LOCALUSER } from './constants';
+import { resetFavoriteList } from '@/components/pages/FavoritesPage/FavoritesPage.slice';
 
 type User = {
   email: string;
@@ -23,9 +21,7 @@ export function LogIn(email: string, password: string) {
         return user;
       }
     } catch (error) {
-
-      console.error("Failed to parse user data:", error);
-
+      console.error('Failed to parse user data:', error);
     }
   } else {
     return false;
@@ -65,7 +61,6 @@ export function addUser(email: string, password: string) {
     LOCALUSER,
     JSON.stringify({ email: email, password: password, auth: true }),
   );
-
 }
 // проверка есть ли пользователь с таким email
 export function EmailAlreadyEx(email: string) {
@@ -88,7 +83,6 @@ export const makeImagePath = (image_id: string) => {
   return `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`;
 };
 
-
 // взять список id избранного
 export const getFavoritasList = (): [] => {
   const localFavorites = window.localStorage.getItem(LOCALFAVORITE);
@@ -103,19 +97,12 @@ export const getFavoritasList = (): [] => {
 export const addFavotitesToList = (id: number) => {
   const localFavorites = getFavoritasList();
   const newFavorites = [...localFavorites, id];
-  window.localStorage.setItem(
-    LOCALFAVORITE,
-    JSON.stringify({ favoritas: newFavorites })
-  );
+  window.localStorage.setItem(LOCALFAVORITE, JSON.stringify({ favoritas: newFavorites }));
 };
 
-// удалить из избранного 
+// удалить из избранного
 export const removeFavoritesOfList = (id: number) => {
   const localFavorites = getFavoritasList();
-  const newFavorites = localFavorites.filter((item) => item !== id);
-  window.localStorage.setItem(
-    LOCALFAVORITE,
-    JSON.stringify({ favoritas: newFavorites })
-  );
+  const newFavorites = localFavorites.filter(item => item !== id);
+  window.localStorage.setItem(LOCALFAVORITE, JSON.stringify({ favoritas: newFavorites }));
 };
-

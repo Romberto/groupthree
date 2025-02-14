@@ -1,37 +1,36 @@
 import { NavList } from './types';
 
 export enum PATH {
-
-  HOME = "/",
-  SEARCH = "/search",
-  FAVORITES = "/favorites",
-  HISTORY = "/hitory",
-  SIGNIN = "/sign-in",
-  SIGNUP = "/sign-up",
+  HOME = '/',
+  SEARCH = '/search',
+  FAVORITES = '/favorites',
+  HISTORY = '/hitory',
+  SIGNIN = '/sign-in',
+  SIGNUP = '/sign-up',
 }
 
 export enum APIPATH {
-  ENDPOINT = "https://api.artic.edu/api/v1/artworks",
-  GETPAGE = "&limit=12&page=",
-  GETFIELDS = "?fields=id,title,artist_display,date_display,description,image_id,date_endl",
+  ENDPOINT = 'https://api.artic.edu/api/v1/artworks',
+  GETPAGE = '&limit=12&page=',
+  GETFIELDS = '?fields=id,title,artist_display,date_display,description,image_id,date_endl',
 }
 
-export const LOCALUSER = "User";
-export const LOCALFAVORITE = "favoritas";
+export const LOCALUSER = 'User';
+export const LOCALFAVORITE = 'favoritas';
 
-export const DEFAULTIMAGE = "https://kzs.su/image/no_image.jpg";
+export const DEFAULTIMAGE = 'https://kzs.su/image/no_image.jpg';
 
 export const headerNavList: NavList[] = [
   {
-    link: "home",
+    link: 'home',
     path: PATH.HOME,
   },
   {
-    link: "search",
+    link: 'search',
     path: PATH.SEARCH,
   },
   {
-    link: "favorites",
+    link: 'favorites',
     path: PATH.FAVORITES,
   },
 ];
@@ -67,15 +66,15 @@ export const BASE_IMAGE_URL = 'https://www.artic.edu/iiif/2';
 
 // Заглушка для изображений
 export const PLACEHOLDER_IMAGE =
-
-  "https://via.placeholder.com/843x843?text=No+Image";
+  'https://via.placeholder.com/843x843?text=No+Image';
 
 // Эндпоинт для получения списка картин с нужными полями
 export const ARTWORKS_ENDPOINT = `${BASE_API_URL}/artworks?fields=id,title,artist_display,date_display,image_id&limit=36`;
 export const ARTWORKS_FIELDS =
-  "fields=id,title,artist_display,date_display,image_id";
+  'fields=id,title,artist_display,date_display,image_id';
 
-export const PENDING = "pending";
-export const FULFILLED = "fulfilled";
-export const REJECTED = "rejected";
+export const PENDING = 'pending';
+export const FULFILLED = 'fulfilled';
+export const REJECTED = 'rejected';
 
+export const NO_INFO = 'No info';

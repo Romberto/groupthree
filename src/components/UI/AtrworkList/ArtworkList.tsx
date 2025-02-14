@@ -1,10 +1,9 @@
-
-import React from "react";
-import styles from "./ArtworkList.module.css";
-import { ArtworkCard } from "./ArtworkCard";
-import { useAppSelector } from "@/app/hooks";
+import React from 'react';
+import styles from './ArtworkList.module.css';
+import { ArtworkCard } from './ArtworkCard';
+import { useAppSelector } from '@/app/hooks';
+import { selectFavoritesIds } from '@/utils/selectors';
 import { Artwork } from "@/utils/types";
-import { selectFavoritesIds } from "@/utils/selectors";
 import { filterArtworks } from "@/utils/filterArtworks";
 
 
