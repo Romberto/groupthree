@@ -3,12 +3,12 @@ import React from "react";
 import styles from "./ArtworkList.module.css";
 import { ArtworkCard } from "./ArtworkCard";
 import { useAppSelector } from "@/app/hooks";
-import { ArtWorkItemProps } from "@/utils/types";
+import { Artwork } from "@/utils/types";
 import { selectFavoritesIds } from "@/utils/selectors";
 import { filterArtworks } from "@/utils/filterArtworks";
 
 
-export const ArtworkList: React.FC<{ data: ArtWorkItemProps[], searchQuery: string }> = ({ data, searchQuery }) => {
+export const ArtworkList: React.FC<{ data: Artwork[], searchQuery: string }> = ({ data, searchQuery }) => {
     const filteredArtworks = filterArtworks(data, searchQuery);
     const favorites = useAppSelector(selectFavoritesIds)
     const isExistInFavoritas = (id:number):boolean =>{
@@ -29,6 +29,7 @@ export const ArtworkList: React.FC<{ data: ArtWorkItemProps[], searchQuery: stri
                         artist={art.artist_display}
                         date={art.date_display}
                         imageId={art.image_id}
+                        isFavorites={isExistInFavoritas(art.id)}
                     />
                 ))
             ) : (

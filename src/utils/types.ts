@@ -113,17 +113,17 @@ export type LocalUserType = {
 };
 
 
-export type ArtWorkItemProps = {
-  id: number;
-  title: string;
-  date_display: string;
-  artist_display: string;
-  image_id: string;
-};
+// export type ArtWorkItemProps = {
+//   id: number;
+//   title: string;
+//   date_display: string;
+//   artist_display: string;
+//   image_id: string;
+// };
 
 export type FavoritesType = {
   favorites: number[];
-  elements: ArtWorkItemProps[];
+  elements: Artwork[];
   isLoad: "pending" | "fulfilled" | "rejected";
 };
 

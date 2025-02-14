@@ -4,11 +4,11 @@ import { SearchFilterForm } from "@/components/UI/SearchFilterForm/SearchFilterF
 import React, { useEffect, useState } from "react";
 import styles from "./SearchPage.module.css";
 import { ARTWORKS_ENDPOINT } from "@/utils/constants";
-import { ArtWorkItemProps } from "@/utils/types";
+import { Artwork } from "@/utils/types";
 import { filterArtworks } from "@/utils/filterArtworks";
 
 export const SearchPage: React.FC = () => {
-    const [artworks, setArtworks] = useState<ArtWorkItemProps[]>([]);
+    const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>("");
@@ -43,7 +43,7 @@ return (
           <div className={styles.form}>
                 <SearchFilterForm onSearch={setSearchQuery} />
             </div>
-          <ArtworkList data={filteredArtworks}/>
+          <ArtworkList data={filteredArtworks} searchQuery={searchQuery}/>
         </div>
       );
 };
