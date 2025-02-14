@@ -45,7 +45,7 @@ export const fetchGetCardPage = async(page:string) => {
       Promise.reject("Network error fetchGetCardPage")
     }
     const data = await response.json()
-    return data.data
+    return data
   }catch(error){
     Promise.reject(error)
   }

@@ -3,9 +3,9 @@ import styles from './ArtworkList.module.css';
 import { ArtworkCard } from './ArtworkCard';
 import { useAppSelector } from '@/app/hooks';
 import { selectFavoritesIds } from '@/utils/selectors';
-import {  ArtWorkDataProps } from '@/utils/types';
+import {  ArtworkFullType } from '@/utils/types';
 
-export const ArtworkList: React.FC<{ data: ArtWorkDataProps[] }> = ({
+export const ArtworkList: React.FC<{ data: ArtworkFullType[] }> = ({
   data,
 }) => { 
   const favorites = useAppSelector(selectFavoritesIds);

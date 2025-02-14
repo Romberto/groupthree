@@ -10,3 +10,4 @@ export const selectIsUser = (state:RootState) => state.authReducer.auth
 
 export const selectSearchPage = (state:RootState) => state.searchPageDataCardReducer.cards
 export const selectSearchPageIsLoading = (state:RootState) => state.searchPageDataCardReducer.isLoading
+export const selectTotalPage = (state:RootState) => state.searchPageDataCardReducer.total_page

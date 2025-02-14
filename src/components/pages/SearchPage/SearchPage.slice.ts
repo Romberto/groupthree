@@ -1,16 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArtWorkDataProps } from '@/utils/types';
-import { ARTWORKS_ENDPOINT } from '@/utils/constants';
+import { responseDataProps, searchPageInitialState } from '@/utils/types';
 import { fetchGetCardPage } from '@/utils/api';
 
-type searchPageInitialState = {
-  cards: ArtWorkDataProps[];
-  isLoading: 'pending' | 'fulfilled' | 'rejected';
-};
 
 const initialState: searchPageInitialState = {
   cards: [],
   isLoading: 'pending',
+  total_page: 1
 };
 
 export const getCardsPage = createAsyncThunk('getcard', async (page:string) => {
@@ -25,8 +21,9 @@ const searchPageData = createSlice({
   extraReducers: builder => {
     builder.addCase(
       getCardsPage.fulfilled,
-      (state, action: PayloadAction<ArtWorkDataProps[]>) => {
-        state.cards = action.payload;
+      (state, action: PayloadAction<responseDataProps>) => {
+        state.cards = action.payload.data;
+        state.total_page = action.payload.pagination.total_pages
         state.isLoading = 'fulfilled';
       },
     );
