@@ -1,47 +1,28 @@
 import { ArtworkList } from "@/components/UI/AtrworkList/ArtworkList";
-import { SearchFilterForm } from "@/components/UI/SearchFilterForm/SearchFilterForm";
 import React, { useEffect, useState } from "react";
 import styles from "./SearchPage.module.css";
-import { ARTWORKS_ENDPOINT } from "@/utils/constants";
-import { Artwork } from "@/utils/types";
-import { filterArtworks } from "@/utils/filterArtworks";
+import { SearchBar } from "@/components/UI/SearchFilterForm/SearchBar";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { selectSearchPage, selectSearchPageIsLoading } from "@/utils/selectors";
+import { getCardsPage } from "./SearchPage.slice";
 
 export const SearchPage: React.FC = () => {
-  const [artworks, setArtworks] = useState<Artwork[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
-   
+  const artworks = useAppSelector(selectSearchPage)
+  const loading = useAppSelector(selectSearchPageIsLoading)
+  const dispatch = useAppDispatch()
+  const [page, setPage] = useState('1')
   useEffect(() => {
-    fetch(ARTWORKS_ENDPOINT)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch artworks');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setArtworks(data.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  const filteredArtworks = filterArtworks(artworks, searchQuery);
+    dispatch(getCardsPage(page))
+  }, [dispatch, page]);
+  if (loading === 'pending') return <p>Loading...</p>;
 
 
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-            <SearchFilterForm onSearch={setSearchQuery} />
+            <SearchBar placeholder='Search...' />
         </div>
-      <ArtworkList data={filteredArtworks} searchQuery={searchQuery}/>
+      <ArtworkList data={artworks}/>
     </div>
   );
 };

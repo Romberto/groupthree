@@ -1,24 +1,34 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styles from "./SearchBar.module.css";
 import { SearchBarProps } from "../../../utils/types";
 
-export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
-  const [query, setQuery] = useState("");
+export const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => {
+  const [formData, setFormData] = useState({
+    search:''
+  });
 
   const handleSearch = () => {
-    onSearch(query);
+    // todo dispatch
   }
-  
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const {name, value } = e.target;
+    setFormData(prev=>(
+      {...prev,
+      [name]: value})
+    )
+  }
+
   return (
-    <div className={styles.searchBar}>
+    <form className={styles.searchBar}>
       <input type="text" 
+      name="search"
       placeholder={placeholder} 
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
+      value={formData.search}
+      onChange={handleChange}
       className={styles.searchInput} />
       <button className={styles.searchButton} onClick={handleSearch}>
         Search
       </button>
-    </div>
+    </form>
 );
 }
