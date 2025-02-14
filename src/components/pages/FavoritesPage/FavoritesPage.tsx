@@ -37,7 +37,7 @@ export const FavoritesPage: React.FC = () => {
         ) : (
           <ul>
             {!isNotData ? (
-              <ArtworkList data={favorites_items} searchQuery="" />
+              <ArtworkList data={favorites_items} />
             ) : (
               <FavoritesNotRecords />
             )}

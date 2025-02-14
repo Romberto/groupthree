@@ -67,7 +67,6 @@ export type FilterButtonProps = {
 
 export type SearchBarProps = {
   placeholder: string;
-  onSearch: (query: string) => void
 };
 
 export type SocialMediaItemType = {
@@ -90,15 +89,6 @@ export type ArtworkCardProps = {
   isFavorites: boolean;
 };
 
-export type Artwork = {
-  id: number;
-  title: string;
-  artist_display: string;
-  date_display: string;
-  image_id: string | null;
-  searchQuery?: string;
-};
-
 export type ProtectedRouteElementType = {
   element: JSX.Element;
 };
@@ -111,22 +101,21 @@ export type LocalUserType = {
 
 export type FavoritesType = {
   favorites: number[];
-  elements: ArtWorkItemProps[];
+  elements: ArtworkFullType[];
   isLoad: 'pending' | 'fulfilled' | 'rejected';
+}
 
-// export type ArtWorkItemProps = {
-//   id: number;
-//   title: string;
-//   date_display: string;
-//   artist_display: string;
-//   image_id: string;
-// };
-
-export type FavoritesType = {
-  favorites: number[];
-  elements: Artwork[];
-  isLoad: "pending" | "fulfilled" | "rejected";
+export type searchPageInitialState = {
+  cards: ArtworkFullType[];
+  isLoading: 'pending' | 'fulfilled' | 'rejected';
+  total_page: number
 };
+
+export type responseDataProps = {
+  data: ArtworkFullType[]
+  pagination: {total_pages:number}
+}
+
 
 export type ArtworkFullType = {
   id: number;

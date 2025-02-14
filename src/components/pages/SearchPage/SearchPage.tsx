@@ -1,47 +1,34 @@
 import { ArtworkList } from "@/components/UI/AtrworkList/ArtworkList";
-import { SearchFilterForm } from "@/components/UI/SearchFilterForm/SearchFilterForm";
 import React, { useEffect, useState } from "react";
 import styles from "./SearchPage.module.css";
-import { ARTWORKS_ENDPOINT } from "@/utils/constants";
-import { Artwork } from "@/utils/types";
-import { filterArtworks } from "@/utils/filterArtworks";
+import { SearchBar } from "@/components/UI/SearchFilterForm/SearchBar";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { selectSearchPage, selectSearchPageIsLoading, selectTotalPage } from "@/utils/selectors";
+import { getCardsPage } from "./SearchPage.slice";
+import { PaginationCard } from "@/components/UI/PaginationCard/PaginationCard";
 
 export const SearchPage: React.FC = () => {
-  const [artworks, setArtworks] = useState<Artwork[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
-   
+  const artworks = useAppSelector(selectSearchPage)
+  const loading = useAppSelector(selectSearchPageIsLoading)
+  const total_page = useAppSelector(selectTotalPage)
+  const dispatch = useAppDispatch()
+  const [page, setPage] = useState('1')
   useEffect(() => {
-    fetch(ARTWORKS_ENDPOINT)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch artworks');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setArtworks(data.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
+    dispatch(getCardsPage(page))
+  }, [dispatch, page]);
+  if (loading === 'pending') return <p>Loading...</p>;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  const filteredArtworks = filterArtworks(artworks, searchQuery);
-
+  const handlePage = (page:number) => {
+    setPage(String(page))
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-            <SearchFilterForm onSearch={setSearchQuery} />
+            <SearchBar placeholder='Search...' />
         </div>
-      <ArtworkList data={filteredArtworks} searchQuery={searchQuery}/>
+      <ArtworkList data={artworks}/>
+      <PaginationCard total={total_page} onChange={handlePage}/>
     </div>
   );
 };

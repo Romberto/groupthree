@@ -97,12 +97,51 @@ export const getFavoritasList = (): [] => {
 export const addFavotitesToList = (id: number) => {
   const localFavorites = getFavoritasList();
   const newFavorites = [...localFavorites, id];
-  window.localStorage.setItem(LOCALFAVORITE, JSON.stringify({ favoritas: newFavorites }));
+  window.localStorage.setItem(
+    LOCALFAVORITE,
+    JSON.stringify({ favoritas: newFavorites }),
+  );
 };
 
 // удалить из избранного
 export const removeFavoritesOfList = (id: number) => {
   const localFavorites = getFavoritasList();
   const newFavorites = localFavorites.filter(item => item !== id);
-  window.localStorage.setItem(LOCALFAVORITE, JSON.stringify({ favoritas: newFavorites }));
+  window.localStorage.setItem(
+    LOCALFAVORITE,
+    JSON.stringify({ favoritas: newFavorites }),
+  );
+};
+
+export const makeButtonList = (total: number, currentButton: number) => {
+  const result: Array<{ index: number }> = [];
+  if (total > 3) {
+    switch (currentButton) {
+      case total - 2:
+        for (let i = currentButton; i < total + 1; i++) {
+          result.push({ index: i });
+        }
+        break;
+      case total - 1:
+        for (let i = currentButton - 1; i < total + 1; i++) {
+          result.push({ index: i });
+        }
+        break;
+      case total:
+        for (let i = currentButton - 2; i < total + 1; i++) {
+          result.push({ index: i });
+        }
+        break;
+      default:
+        for (let i = 0; i < 3; i++) {
+          result.push({ index: currentButton + i });
+        }
+        break;
+    }
+  } else {
+    for (let i = 1; i < total + 1; i++) {
+      result.push({ index: i });
+    }
+  }
+  return result;
 };
