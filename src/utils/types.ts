@@ -143,3 +143,7 @@ export type ArtworkFullType = {
   is_public_domain: boolean;
   is_on_view: boolean;
 };
+
+export type SpecificationProps = {
+  data: ArtworkFullType | null;
+};

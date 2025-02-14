@@ -1,24 +1,20 @@
 import styles from './Specification.module.css';
-import { ArtworkFullType } from '@/utils/types';
-
-type SpecificationProps = {
-  data: ArtworkFullType | null;
-};
+import { SpecificationProps } from '@/utils/types';
+import { NO_INFO } from '@/utils/constants';
 
 export const Specifications: React.FC<SpecificationProps> = ({ data }) => {
-  const specifications = {
-    Date: data?.date_display || 'No info',
-    'Artwork Type': data?.artwork_type_title || 'No info',
-    'Department title': data?.department_title || 'No info',
-    Style: data?.style_title || 'No info',
-    Medium: data?.medium_display || 'No info',
-    'Refference Number': data?.main_reference_number || 'No info',
-    Inscriptions: data?.inscriptions || 'No info',
-    Dimensions: data?.dimensions || 'No info',
-    Description: data?.short_description || 'No info',
+  const specifications: Record<string, string> = {
+    Date: data?.date_display || NO_INFO,
+    'Artwork Type': data?.artwork_type_title || NO_INFO,
+    'Department title': data?.department_title || NO_INFO,
+    Style: data?.style_title || NO_INFO,
+    Medium: data?.medium_display || NO_INFO,
+    'Refference Number': data?.main_reference_number || NO_INFO,
+    Inscriptions: data?.inscriptions || NO_INFO,
+    Dimensions: data?.dimensions || NO_INFO,
+    Description: data?.short_description || NO_INFO,
   };
 
-  console.log(data);
   return (
     <div className={styles.specification}>
       <h3 className={styles.specification_title}>Specification:</h3>
