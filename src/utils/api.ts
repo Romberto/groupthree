@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APIPATH, ARTWORKS_ENDPOINT, BASE_API_URL } from './constants';
+import { APIPATH, ARTWORKS_ENDPOINT, ARTWORKS_QUERY, BASE_API_URL } from './constants';
 
 export const fetchApiPage = async (page: string) => {
   const path = `${APIPATH.ENDPOINT}${APIPATH.GETFIELDS}${APIPATH.GETPAGE}${page}`;
@@ -43,6 +43,19 @@ export const fetchGetCardPage = async(page:string) => {
     const response = await fetch(`${ARTWORKS_ENDPOINT}${page}`)
     if(!response.ok){
       Promise.reject("Network error fetchGetCardPage")
+    }
+    const data = await response.json()
+    return data
+  }catch(error){
+    Promise.reject(error)
+  }
+}
+
+export const fetchQuerysearchPage = async(query:string) => {
+  try{
+    const response = await fetch(`${ARTWORKS_QUERY}${query}`)
+    if(!response.ok){
+      Promise.reject("Network error fetchQuerysearchPage")
     }
     const data = await response.json()
     return data

@@ -70,6 +70,7 @@ export const PLACEHOLDER_IMAGE =
 
 // Эндпоинт для получения списка картин с нужными полями
 export const ARTWORKS_ENDPOINT = `${BASE_API_URL}/artworks?fields=id,title,artist_display,date_display,image_id&limit=20&page=`;
+export const ARTWORKS_QUERY = `${BASE_API_URL}/artworks/search?fields=id,title,artist_display,date_display,image_id&limit=20&q=`
 export const ARTWORKS_FIELDS =
   'fields=id,title,artist_display,date_display,image_id';
 
@@ -78,3 +79,4 @@ export const FULFILLED = 'fulfilled';
 export const REJECTED = 'rejected';
 
 export const NO_INFO = 'No info';
+
