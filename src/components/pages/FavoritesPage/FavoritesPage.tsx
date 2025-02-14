@@ -10,6 +10,7 @@ import {
   selectFavoritesItem,
   selectFavoritesIsLoading,
 } from "@/utils/selectors";
+import styles from "./FavoritesPage.module.css";
 
 export const FavoritesPage: React.FC = () => {
   const favorites_ids = useAppSelector(selectFavoritesIds); // Используйте селектор
@@ -27,21 +28,23 @@ export const FavoritesPage: React.FC = () => {
     }
   }, [favorites_ids, dispatch]);
   return (
-    <>
-      {favorites_isLoading === PENDING ? (
-        <p>Loading...</p>
-      ) : favorites_isLoading === REJECTED ? (
-        <p>Ups...error</p>
-      ) : (
-        <ul>
-          {!isNotData ? (
-            <ArtworkList data={favorites_items} />
-          ) : (
-            <FavoritesNotRecords />
-          )}
-        </ul>
-      )}
-    </>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        {favorites_isLoading === PENDING ? (
+          <p>Loading...</p>
+        ) : favorites_isLoading === REJECTED ? (
+          <p>Ups...error</p>
+        ) : (
+          <ul>
+            {!isNotData ? (
+              <ArtworkList data={favorites_items} searchQuery="" />
+            ) : (
+              <FavoritesNotRecords />
+            )}
+          </ul>
+        )}
+      </div>
+    </div>
   );
 };
 
