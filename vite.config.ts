@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base:"/groupthree/",
   resolve: {
     alias: {
       '@': '/src', // Алиас для папки src
